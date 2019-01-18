@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#  configure
+#  kssutil
+#
+
+source BuildSystem/configure_common.sh
