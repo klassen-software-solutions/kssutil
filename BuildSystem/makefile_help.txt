@@ -1,0 +1,135 @@
+
+QUICK START
+
+To build, run the tests and install using the defaults, use the following
+three steps:
+    ./configure
+    make
+    make check
+    sudo make install
+If you wish to change the configuration, read the following two sections.
+
+
+OVERVIEW OF THE BUILD SYSTEM
+
+We at Klassen Software Solutions have created this build system primarily
+to support our own projects. However it has been made somewhat flexible
+to allow others to use it for their own projects without having to make
+drastic edits to the build system.
+
+There are a number of principles that we have followed when creating this
+build system.
+
+1. Minimal external requirements
+
+Unlike CMake or others like it, you don't have to have much installed for
+this system to work. For this to work it has the following requirements:
+ - a GNU-like make command
+ - support for Bourne shell scripting (bash works fine)
+and optionally
+ - git, if you want automatically generated version numbers
+ - doxygen, if you wish to generate documentation
+
+2. Convension over specification
+
+One of the key goals of our system is that you don't have to edit the
+build system every time you want to add files. Instead, you just need to
+place them in the correct locations. These are as follows:
+
+Sources - Any .c or .cpp files placed in this directory will be included
+    in the building of the library. Any .h or .hpp files in this directory
+    will be included when installing the library.
+
+Tests - Any .c or .cpp files placed in this directory will be included
+    when building the unit testing application. Note that we assume that
+    a suitable main function is included in one of these files.
+
+<underscores> - Any files (specifically any .h or .hpp file) that begins
+    with an underscore is assumed to be private and will not be installed
+    with the rest of the system.
+
+3. Automatic generation
+
+This sytem will automatically produce the following:
+
+versions via tags - The automatically generated version number is based
+    on the most recent git tag in the current branch. This is modified
+    by adding the number of checkins since the most recent tag, plus
+    the short version of the most recent checkin hash, plus the letter
+    'M' if the code has been modified since the last checkin.
+
+_version_internal.h - This file is created to contain a local
+    'constexpr const char* versionText'. You can include this file
+    in any location where you wish to use the version string. We
+    typically create a 'version()' method that returns this string.
+
+_license_internal.h - This file is created to contain a local
+    'constexpr const char* licenseText'. This will be a multiline
+    character string containing the contents of the LICENSE file.
+    You can include this file in any location where you want to
+    contain the license text. We typically create a 'license()'
+    method that returns this string.
+
+all.h - This file is created to include all the .h and .hpp files for
+    this package, excluding any that begin with an underscore. This makes
+    it easy for users to use the library without having to list large
+    number of includes. In modern compilers with precompiled headers,
+    it also help reuse those headers.
+
+
+OVERRIDING THE DEFAULTS
+
+Overriding Using the Configure Script
+
+By default we use clang on MacOS and gcc on Linux and we install into the
+directory /usr/local. You can change this by running the configure script.
+Type './configure --help' for a description of what command line options
+the configure script will accept.
+
+Overriding Using the Local Config File
+
+If you wish to override some of our default settings, and you don't want to
+have to repeatedly run the configure script, you can create a file called
+'config.local'. These settings will override those in our common.mk file.
+Typically you would not check this file in, however, if you wish to use
+our build system for your own projects, you could checkin a file of this
+name to override things to suite your project without having to edit our
+common.mk file.
+
+Overriding Using the Target Config File
+
+If the file $TARGETDIR/share/config.site exists, it will be included after
+the local configuration file and after the configuration script settings
+have been made. This allows you to create these settings once and use them
+for any of the systems you are building using this build system.
+
+
+MAKE TARGETS
+
+<no target> - Builds the library.
+check       - Builds and runs the tests.
+clean       - Cleans out the compiled and auto-generated items.
+cleanall    - Also cleans the complete .build directory and all files created
+              by running './configure' or 'make docs'.
+docs        - Builds the documentation and places it in the docs directory.
+hello       - Displays some of the configuration settings. This is most useful
+              when you are overriding some of the settings as it can display
+              what it believes has been set without running the actual builds.
+help        - Displays this help message.
+install     - Installs the library and header files into the target directory.
+prep        - Builds a number of preparatory items. This is most useful when you
+              are building in an IDE (like Xcode) and need to build the auto-
+              generated items.
+
+
+OTHER OPTIONS
+
+Debug Version
+
+By default the system always builds an optimized version of the library. The
+main reason it is designed this way is because we do most of our debugging in
+Xcode, and we mostly run make when we want to build and install the release
+version. You can change this behaviour by adding DEBUG=true to your make
+line as shown below:
+
+make clean ; make check DEBUG=true
