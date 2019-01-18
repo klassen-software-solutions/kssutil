@@ -15,6 +15,10 @@
 		AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4C721F19D5000C270C7 /* main.cpp */; };
 		AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4C821F19D5000C270C7 /* ksstest.cpp */; };
 		AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4CC21F19D6800C270C7 /* version.cpp */; };
+		AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4CE21F19F4700C270C7 /* substring.hpp */; };
+		AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */; };
+		AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */; };
+		AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4D521F1A1E400C270C7 /* substring.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,11 @@
 		AACCD4C821F19D5000C270C7 /* ksstest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ksstest.cpp; sourceTree = "<group>"; };
 		AACCD4C921F19D5000C270C7 /* ksstest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ksstest.hpp; sourceTree = "<group>"; };
 		AACCD4CC21F19D6800C270C7 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
+		AACCD4CE21F19F4700C270C7 /* substring.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = substring.hpp; sourceTree = "<group>"; };
+		AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = add_rel_ops.hpp; sourceTree = "<group>"; };
+		AACCD4D221F1A07500C270C7 /* utility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
+		AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = add_rel_ops.cpp; sourceTree = "<group>"; };
+		AACCD4D521F1A1E400C270C7 /* substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = substring.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +124,9 @@
 			children = (
 				AACCD4B021F19B4500C270C7 /* _contract.cpp */,
 				AACCD4AF21F19B4500C270C7 /* _contract.hpp */,
+				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
+				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
+				AACCD4D221F1A07500C270C7 /* utility.hpp */,
 				AACCD4B421F19C7B00C270C7 /* version.cpp */,
 				AACCD4B321F19C7B00C270C7 /* version.hpp */,
 			);
@@ -131,9 +143,11 @@
 		AACCD4C621F19D2E00C270C7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
 				AACCD4C821F19D5000C270C7 /* ksstest.cpp */,
 				AACCD4C921F19D5000C270C7 /* ksstest.hpp */,
 				AACCD4C721F19D5000C270C7 /* main.cpp */,
+				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
 				AACCD4CC21F19D6800C270C7 /* version.cpp */,
 			);
 			path = Tests;
@@ -147,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACCD4B121F19B4500C270C7 /* _contract.hpp in Headers */,
+				AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */,
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
+				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */,
+				AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */,
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,

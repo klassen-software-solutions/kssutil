@@ -13,7 +13,7 @@ using namespace std;
 using namespace kss::test;
 
 
-static TestSuite ts("version", {
+static TestSuite ts("::version", {
     make_pair("version", [] {
         KSS_ASSERT(!kss::util::version().empty());
         KSS_ASSERT(!kss::util::license().empty());
