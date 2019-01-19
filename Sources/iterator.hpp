@@ -11,9 +11,7 @@
 // necessary operations, and T which specifies the type of data that the iterator
 // provides access to.
 //
-//  Permission is hereby granted to use/modify/publish this code without restriction or
-//  requirement other than you are not allowed to hinder others from doing the same.
-//  No warranty or other guarantee is given regarding the use of this code.
+//  Licensing follows the MIT License.
 //
 
 

@@ -4,9 +4,7 @@
 //
 //  Created by Steven W. Klassen on 2018-04-26.
 //  Copyright © 2018 Klassen Software Solutions. All rights reserved.
-//
-//     Permission is hereby granted to use, modify, and publish this file without restriction other
-//     than to recognize that others are allowed to do the same.
+//  Licensing follows the MIT License.
 //
 
 #ifndef kssutil_add_rel_ops_hpp

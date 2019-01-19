@@ -4,6 +4,7 @@
 //
 //  Created by Steven W. Klassen on 2019-01-17.
 //  Copyright © 2019 Klassen Software Solutions. All rights reserved.
+//  Licensing follows the MIT License.
 //
 
 #ifndef kssutil_utility_hpp

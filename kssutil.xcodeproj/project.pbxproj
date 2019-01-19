@@ -17,6 +17,9 @@
 		AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B121F2944B002A7FBB /* suppress.cpp */; };
 		AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19B521F2CFD1002A7FBB /* raii.hpp */; };
 		AA4D19B821F2D0EA002A7FBB /* raii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B721F2D0EA002A7FBB /* raii.cpp */; };
+		AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */; };
+		AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */; };
+		AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19C121F2D887002A7FBB /* stringutil.cpp */; };
 		AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4B321F19C7B00C270C7 /* version.hpp */; };
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
@@ -64,6 +67,9 @@
 		AA4D19B421F29A63002A7FBB /* no_parallel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = no_parallel.hpp; sourceTree = "<group>"; };
 		AA4D19B521F2CFD1002A7FBB /* raii.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = raii.hpp; sourceTree = "<group>"; };
 		AA4D19B721F2D0EA002A7FBB /* raii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = raii.cpp; sourceTree = "<group>"; };
+		AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
+		AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stringutil.hpp; sourceTree = "<group>"; };
+		AA4D19C121F2D887002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AA4D19A321F2729B002A7FBB /* iterator.hpp */,
 				AA4D19B521F2CFD1002A7FBB /* raii.hpp */,
+				AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */,
+				AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */,
 				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
 				AA4D199F21F2716D002A7FBB /* tokenizer.cpp */,
 				AA4D19A021F2716E002A7FBB /* tokenizer.hpp */,
@@ -172,6 +180,7 @@
 				AACCD4C721F19D5000C270C7 /* main.cpp */,
 				AA4D19B421F29A63002A7FBB /* no_parallel.hpp */,
 				AA4D19B721F2D0EA002A7FBB /* raii.cpp */,
+				AA4D19C121F2D887002A7FBB /* stringutil.cpp */,
 				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
 				AA4D19B121F2944B002A7FBB /* suppress.cpp */,
 				AA4D19B221F2944B002A7FBB /* suppress.hpp */,
@@ -195,6 +204,7 @@
 				AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */,
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
 				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
+				AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */,
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
 				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
@@ -312,6 +323,7 @@
 				AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */,
 				AA4D19B821F2D0EA002A7FBB /* raii.cpp in Sources */,
 				AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */,
+				AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */,
 				AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */,
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
