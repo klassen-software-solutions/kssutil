@@ -1,13 +1,12 @@
 //
 //  _contract.cpp
-//  kssio
+//  ksscontract
 //
 //  Created by Steven W. Klassen on 2018-12-14.
 //  Copyright © 2018 Klassen Software Solutions. All rights reserved.
 //  Licensing follows the MIT License.
 //
-//  "borrowed" from ksscontract
-//
+// "Borrowed" from ksscontract
 
 #include <cassert>
 #include <exception>

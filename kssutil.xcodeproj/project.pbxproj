@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AACCD4B121F19B4500C270C7 /* _contract.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4AF21F19B4500C270C7 /* _contract.hpp */; };
-		AACCD4B221F19B4500C270C7 /* _contract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B021F19B4500C270C7 /* _contract.cpp */; };
+		AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D199F21F2716D002A7FBB /* tokenizer.cpp */; };
+		AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A021F2716E002A7FBB /* tokenizer.hpp */; };
+		AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A321F2729B002A7FBB /* iterator.hpp */; };
+		AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19A521F2775B002A7FBB /* iterator.cpp */; };
+		AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19AB21F28283002A7FBB /* _contract.cpp */; };
+		AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19AC21F28283002A7FBB /* _contract.hpp */; };
+		AA4D19B021F28561002A7FBB /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19AF21F28561002A7FBB /* tokenizer.cpp */; };
+		AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B121F2944B002A7FBB /* suppress.cpp */; };
 		AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4B321F19C7B00C270C7 /* version.hpp */; };
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
@@ -44,6 +50,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA4D199F21F2716D002A7FBB /* tokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
+		AA4D19A021F2716E002A7FBB /* tokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokenizer.hpp; sourceTree = "<group>"; };
+		AA4D19A321F2729B002A7FBB /* iterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iterator.hpp; sourceTree = "<group>"; };
+		AA4D19A521F2775B002A7FBB /* iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iterator.cpp; sourceTree = "<group>"; };
+		AA4D19AB21F28283002A7FBB /* _contract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _contract.cpp; sourceTree = "<group>"; };
+		AA4D19AC21F28283002A7FBB /* _contract.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = _contract.hpp; sourceTree = "<group>"; };
+		AA4D19AF21F28561002A7FBB /* tokenizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
+		AA4D19B121F2944B002A7FBB /* suppress.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = suppress.cpp; sourceTree = "<group>"; };
+		AA4D19B221F2944B002A7FBB /* suppress.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = suppress.hpp; sourceTree = "<group>"; };
+		AA4D19B421F29A63002A7FBB /* no_parallel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = no_parallel.hpp; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -51,8 +67,6 @@
 		AACCD4AA21F199C600C270C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AACCD4AB21F199C600C270C7 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		AACCD4AE21F19B3000C270C7 /* BuildSystem */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BuildSystem; sourceTree = "<group>"; };
-		AACCD4AF21F19B4500C270C7 /* _contract.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = _contract.hpp; sourceTree = "<group>"; };
-		AACCD4B021F19B4500C270C7 /* _contract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _contract.cpp; sourceTree = "<group>"; };
 		AACCD4B321F19C7B00C270C7 /* version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = version.hpp; sourceTree = "<group>"; };
 		AACCD4B421F19C7B00C270C7 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
 		AACCD4BB21F19CF000C270C7 /* unittest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unittest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,10 +136,13 @@
 		AACCD4AD21F19B1900C270C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AACCD4B021F19B4500C270C7 /* _contract.cpp */,
-				AACCD4AF21F19B4500C270C7 /* _contract.hpp */,
+				AA4D19AB21F28283002A7FBB /* _contract.cpp */,
+				AA4D19AC21F28283002A7FBB /* _contract.hpp */,
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
+				AA4D19A321F2729B002A7FBB /* iterator.hpp */,
 				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
+				AA4D199F21F2716D002A7FBB /* tokenizer.cpp */,
+				AA4D19A021F2716E002A7FBB /* tokenizer.hpp */,
 				AACCD4D221F1A07500C270C7 /* utility.hpp */,
 				AACCD4B421F19C7B00C270C7 /* version.cpp */,
 				AACCD4B321F19C7B00C270C7 /* version.hpp */,
@@ -144,10 +161,15 @@
 			isa = PBXGroup;
 			children = (
 				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
+				AA4D19A521F2775B002A7FBB /* iterator.cpp */,
 				AACCD4C821F19D5000C270C7 /* ksstest.cpp */,
 				AACCD4C921F19D5000C270C7 /* ksstest.hpp */,
 				AACCD4C721F19D5000C270C7 /* main.cpp */,
+				AA4D19B421F29A63002A7FBB /* no_parallel.hpp */,
 				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
+				AA4D19B121F2944B002A7FBB /* suppress.cpp */,
+				AA4D19B221F2944B002A7FBB /* suppress.hpp */,
+				AA4D19AF21F28561002A7FBB /* tokenizer.cpp */,
 				AACCD4CC21F19D6800C270C7 /* version.cpp */,
 			);
 			path = Tests;
@@ -160,7 +182,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACCD4B121F19B4500C270C7 /* _contract.hpp in Headers */,
+				AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */,
+				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
+				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
 				AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */,
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
 				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
@@ -267,8 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
-				AACCD4B221F19B4500C270C7 /* _contract.cpp in Sources */,
+				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */,
+				AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */,
+				AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */,
 				AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */,
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,
+				AA4D19B021F28561002A7FBB /* tokenizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
