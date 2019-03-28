@@ -30,6 +30,9 @@
 		AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */; };
 		AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */; };
 		AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4D521F1A1E400C270C7 /* substring.cpp */; };
+		AAF2179A224C7442001B85B0 /* rtti.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AAF21798224C7441001B85B0 /* rtti.hpp */; };
+		AAF2179B224C7442001B85B0 /* rtti.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF21799224C7442001B85B0 /* rtti.cpp */; };
+		AAF2179D224C753B001B85B0 /* rtti.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF2179C224C753B001B85B0 /* rtti.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		AACCD4D221F1A07500C270C7 /* utility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
 		AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = add_rel_ops.cpp; sourceTree = "<group>"; };
 		AACCD4D521F1A1E400C270C7 /* substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = substring.cpp; sourceTree = "<group>"; };
+		AAF21798224C7441001B85B0 /* rtti.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rtti.hpp; sourceTree = "<group>"; };
+		AAF21799224C7442001B85B0 /* rtti.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rtti.cpp; sourceTree = "<group>"; };
+		AAF2179C224C753B001B85B0 /* rtti.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rtti.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,8 @@
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AA4D19A321F2729B002A7FBB /* iterator.hpp */,
 				AA4D19B521F2CFD1002A7FBB /* raii.hpp */,
+				AAF21799224C7442001B85B0 /* rtti.cpp */,
+				AAF21798224C7441001B85B0 /* rtti.hpp */,
 				AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */,
 				AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */,
 				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
@@ -180,6 +188,7 @@
 				AACCD4C721F19D5000C270C7 /* main.cpp */,
 				AA4D19B421F29A63002A7FBB /* no_parallel.hpp */,
 				AA4D19B721F2D0EA002A7FBB /* raii.cpp */,
+				AAF2179C224C753B001B85B0 /* rtti.cpp */,
 				AA4D19C121F2D887002A7FBB /* stringutil.cpp */,
 				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
 				AA4D19B121F2944B002A7FBB /* suppress.cpp */,
@@ -203,6 +212,7 @@
 				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
 				AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */,
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
+				AAF2179A224C7442001B85B0 /* rtti.hpp in Headers */,
 				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
 				AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */,
 			);
@@ -270,6 +280,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AACCD49621F198CC00C270C7;
 			productRefGroup = AACCD4A021F198CC00C270C7 /* Products */;
@@ -309,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */,
+				AAF2179B224C7442001B85B0 /* rtti.cpp in Sources */,
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
 				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
@@ -322,6 +334,7 @@
 				AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */,
 				AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */,
 				AA4D19B821F2D0EA002A7FBB /* raii.cpp in Sources */,
+				AAF2179D224C753B001B85B0 /* rtti.cpp in Sources */,
 				AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */,
 				AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */,
 				AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */,
