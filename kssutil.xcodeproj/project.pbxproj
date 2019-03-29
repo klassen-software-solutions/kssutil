@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2289F5224ECF5300E6AB8E /* sequentialmap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA2289F4224ECF5300E6AB8E /* sequentialmap.hpp */; };
+		AA2289F7224ED68900E6AB8E /* sequentialmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA2289F6224ED68900E6AB8E /* sequentialmap.cpp */; };
 		AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D199F21F2716D002A7FBB /* tokenizer.cpp */; };
 		AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A021F2716E002A7FBB /* tokenizer.hpp */; };
 		AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A321F2729B002A7FBB /* iterator.hpp */; };
@@ -64,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA2289F4224ECF5300E6AB8E /* sequentialmap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sequentialmap.hpp; sourceTree = "<group>"; };
+		AA2289F6224ED68900E6AB8E /* sequentialmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sequentialmap.cpp; sourceTree = "<group>"; };
 		AA4D199F21F2716D002A7FBB /* tokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
 		AA4D19A021F2716E002A7FBB /* tokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokenizer.hpp; sourceTree = "<group>"; };
 		AA4D19A321F2729B002A7FBB /* iterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iterator.hpp; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				AA4D19B521F2CFD1002A7FBB /* raii.hpp */,
 				AAF21799224C7442001B85B0 /* rtti.cpp */,
 				AAF21798224C7441001B85B0 /* rtti.hpp */,
+				AA2289F4224ECF5300E6AB8E /* sequentialmap.hpp */,
 				AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */,
 				AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */,
 				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
@@ -205,6 +210,7 @@
 				AA4D19B421F29A63002A7FBB /* no_parallel.hpp */,
 				AA4D19B721F2D0EA002A7FBB /* raii.cpp */,
 				AAF2179C224C753B001B85B0 /* rtti.cpp */,
+				AA2289F6224ED68900E6AB8E /* sequentialmap.cpp */,
 				AA4D19C121F2D887002A7FBB /* stringutil.cpp */,
 				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
 				AA4D19B121F2944B002A7FBB /* suppress.cpp */,
@@ -226,6 +232,7 @@
 			files = (
 				AAF217A7224DBAF1001B85B0 /* timeutil.hpp in Headers */,
 				AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */,
+				AA2289F5224ECF5300E6AB8E /* sequentialmap.hpp in Headers */,
 				AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */,
 				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
 				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
@@ -356,6 +363,7 @@
 				AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */,
 				AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */,
 				AA4D19B821F2D0EA002A7FBB /* raii.cpp in Sources */,
+				AA2289F7224ED68900E6AB8E /* sequentialmap.cpp in Sources */,
 				AAF2179D224C753B001B85B0 /* rtti.cpp in Sources */,
 				AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */,
 				AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */,

@@ -4,6 +4,7 @@
 //
 //  Created by Steven W. Klassen on 2013-01-04.
 //  Copyright (c) 2013 Klassen Software Solutions. All rights reserved.
+//  Licensing follows the MIT License.
 //
 
 #include <cerrno>
