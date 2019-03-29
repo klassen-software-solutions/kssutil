@@ -36,6 +36,9 @@
 		AAF217A0224C7AF2001B85B0 /* uuid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF2179E224C7AF2001B85B0 /* uuid.cpp */; };
 		AAF217A1224C7AF2001B85B0 /* uuid.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AAF2179F224C7AF2001B85B0 /* uuid.hpp */; };
 		AAF217A3224C80AE001B85B0 /* uuid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF217A2224C80AD001B85B0 /* uuid.cpp */; };
+		AAF217A6224DBAF1001B85B0 /* timeutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF217A4224DBAF1001B85B0 /* timeutil.cpp */; };
+		AAF217A7224DBAF1001B85B0 /* timeutil.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AAF217A5224DBAF1001B85B0 /* timeutil.hpp */; };
+		AAF217A9224DC1B2001B85B0 /* timeutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAF217A8224DC1B2001B85B0 /* timeutil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		AAF2179E224C7AF2001B85B0 /* uuid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uuid.cpp; sourceTree = "<group>"; };
 		AAF2179F224C7AF2001B85B0 /* uuid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = uuid.hpp; sourceTree = "<group>"; };
 		AAF217A2224C80AD001B85B0 /* uuid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uuid.cpp; sourceTree = "<group>"; };
+		AAF217A4224DBAF1001B85B0 /* timeutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timeutil.cpp; sourceTree = "<group>"; };
+		AAF217A5224DBAF1001B85B0 /* timeutil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timeutil.hpp; sourceTree = "<group>"; };
+		AAF217A8224DC1B2001B85B0 /* timeutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timeutil.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,8 @@
 				AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */,
 				AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */,
 				AACCD4CE21F19F4700C270C7 /* substring.hpp */,
+				AAF217A4224DBAF1001B85B0 /* timeutil.cpp */,
+				AAF217A5224DBAF1001B85B0 /* timeutil.hpp */,
 				AA4D199F21F2716D002A7FBB /* tokenizer.cpp */,
 				AA4D19A021F2716E002A7FBB /* tokenizer.hpp */,
 				AACCD4D221F1A07500C270C7 /* utility.hpp */,
@@ -201,6 +209,7 @@
 				AACCD4D521F1A1E400C270C7 /* substring.cpp */,
 				AA4D19B121F2944B002A7FBB /* suppress.cpp */,
 				AA4D19B221F2944B002A7FBB /* suppress.hpp */,
+				AAF217A8224DC1B2001B85B0 /* timeutil.cpp */,
 				AA4D19AF21F28561002A7FBB /* tokenizer.cpp */,
 				AAF217A2224C80AD001B85B0 /* uuid.cpp */,
 				AACCD4CC21F19D6800C270C7 /* version.cpp */,
@@ -215,6 +224,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF217A7224DBAF1001B85B0 /* timeutil.hpp in Headers */,
 				AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */,
 				AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */,
 				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
@@ -331,6 +341,7 @@
 			files = (
 				AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */,
 				AAF2179B224C7442001B85B0 /* rtti.cpp in Sources */,
+				AAF217A6224DBAF1001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A0224C7AF2001B85B0 /* uuid.cpp in Sources */,
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
@@ -350,6 +361,7 @@
 				AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */,
 				AACCD4D421F1A13B00C270C7 /* add_rel_ops.cpp in Sources */,
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
+				AAF217A9224DC1B2001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A3224C80AE001B85B0 /* uuid.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,

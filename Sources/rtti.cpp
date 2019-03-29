@@ -1,18 +1,14 @@
 //
-//  _rtti.cpp
+//  rtti.cpp
 //  kssio
 //
 //  Created by Steven W. Klassen on 2014-01-22.
 //  Copyright (c) 2014 Klassen Software Solutions. All rights reserved.
 //  Licensing follows the MIT License.
 //
-// "Borrowed" from kssutil
-//
 
 #include <stdexcept>
-
 #include <cxxabi.h>
-
 #include "rtti.hpp"
 
 
