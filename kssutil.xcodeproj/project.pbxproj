@@ -38,6 +38,9 @@
 		AABE9084224F212000C355B8 /* memory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AABE9083224F212000C355B8 /* memory.hpp */; };
 		AABE9086224F21C700C355B8 /* memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AABE9085224F21C700C355B8 /* memory.cpp */; };
 		AABE9088224F231300C355B8 /* circular_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AABE9087224F231300C355B8 /* circular_array.cpp */; };
+		AACAA6B2224FE5740005F45E /* attributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6B0224FE5740005F45E /* attributes.cpp */; };
+		AACAA6B3224FE5740005F45E /* attributes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACAA6B1224FE5740005F45E /* attributes.hpp */; };
+		AACAA6B5224FE8D70005F45E /* attributes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6B4224FE8D70005F45E /* attributes.cpp */; };
 		AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4B321F19C7B00C270C7 /* version.hpp */; };
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
@@ -115,6 +118,9 @@
 		AABE9083224F212000C355B8 /* memory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = memory.hpp; sourceTree = "<group>"; };
 		AABE9085224F21C700C355B8 /* memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = memory.cpp; sourceTree = "<group>"; };
 		AABE9087224F231300C355B8 /* circular_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = circular_array.cpp; sourceTree = "<group>"; };
+		AACAA6B0224FE5740005F45E /* attributes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attributes.cpp; sourceTree = "<group>"; };
+		AACAA6B1224FE5740005F45E /* attributes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = attributes.hpp; sourceTree = "<group>"; };
+		AACAA6B4224FE8D70005F45E /* attributes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attributes.cpp; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -204,6 +210,8 @@
 				AA4D19AC21F28283002A7FBB /* _contract.hpp */,
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AABE907F224F1F2400C355B8 /* algorithm.hpp */,
+				AACAA6B0224FE5740005F45E /* attributes.cpp */,
+				AACAA6B1224FE5740005F45E /* attributes.hpp */,
 				AABE907D224F0FB300C355B8 /* circular_array.hpp */,
 				AABE9079224F095900C355B8 /* containerutil.hpp */,
 				AABE9074224F004700C355B8 /* convert.cpp */,
@@ -246,6 +254,7 @@
 			children = (
 				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
 				AABE9081224F1FEB00C355B8 /* algorithm.cpp */,
+				AACAA6B4224FE8D70005F45E /* attributes.cpp */,
 				AABE9087224F231300C355B8 /* circular_array.cpp */,
 				AABE907B224F0BFA00C355B8 /* containerutil.cpp */,
 				AABE9077224F01EA00C355B8 /* convert.cpp */,
@@ -287,6 +296,7 @@
 				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
 				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
 				AABE907A224F095900C355B8 /* containerutil.hpp in Headers */,
+				AACAA6B3224FE5740005F45E /* attributes.hpp in Headers */,
 				AABE9084224F212000C355B8 /* memory.hpp in Headers */,
 				AA2289F9224ED93100E6AB8E /* daemonize.hpp in Headers */,
 				AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */,
@@ -409,6 +419,7 @@
 				AA2289FE224EDF5800E6AB8E /* error.cpp in Sources */,
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
+				AACAA6B2224FE5740005F45E /* attributes.cpp in Sources */,
 				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
 				AABE9076224F004800C355B8 /* convert.cpp in Sources */,
 			);
@@ -419,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACCD4D621F1A1E400C270C7 /* substring.cpp in Sources */,
+				AACAA6B5224FE8D70005F45E /* attributes.cpp in Sources */,
 				AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */,
 				AABE907C224F0BFA00C355B8 /* containerutil.cpp in Sources */,
 				AA4D19B821F2D0EA002A7FBB /* raii.cpp in Sources */,
