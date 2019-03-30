@@ -40,7 +40,7 @@ namespace {
         va_list ap2;
         va_copy(ap2, ap);
         char* buffer = NULL;
-        finally cleanup([&] {
+        Finally cleanup([&] {
             va_end(ap2);
             if (buffer) { free(buffer); }
         });

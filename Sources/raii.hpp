@@ -77,10 +77,10 @@ namespace kss { namespace util {
      Provide a "finally" block. This is a shortcut to an RAII that contains no
      initialization code.
      */
-    class finally : public RAII {
+    class Finally : public RAII {
     public:
-        explicit finally(const lambda_t& code) : RAII([]{}, code) {}
-        explicit finally(lambda_t&& code) : RAII([]{}, move(code)) {}
+        explicit Finally(const lambda_t& code) : RAII([]{}, code) {}
+        explicit Finally(lambda_t&& code) : RAII([]{}, move(code)) {}
     };
 
 }}

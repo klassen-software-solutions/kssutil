@@ -30,7 +30,7 @@ static TestSuite ts("::raii", {
     make_pair("finally", [] {
         bool wasCleanedUp = false;
         {
-            finally testCleaner([&]{ wasCleanedUp = true; });
+            Finally testCleaner([&]{ wasCleanedUp = true; });
             KSS_ASSERT(wasCleanedUp == false);
         }
         KSS_ASSERT(wasCleanedUp == true);

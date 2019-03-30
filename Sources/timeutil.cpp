@@ -357,7 +357,7 @@ namespace {
             lock_guard<mutex> lock(tzEnvMutex);
             char* oldtz = getenv("TZ");
 
-            finally cleanup([&oldtz]{
+            Finally cleanup([&oldtz]{
                 if (oldtz) {
                     setenv("TZ", oldtz, 1);
                 }
@@ -392,7 +392,7 @@ namespace {
             lock_guard<mutex> lock(tzEnvMutex);
             char* oldtz = getenv("TZ");
 
-            finally cleanup([&oldtz]{
+            Finally cleanup([&oldtz]{
                 if (oldtz) {
                     setenv("TZ", oldtz, 1);
                 }
