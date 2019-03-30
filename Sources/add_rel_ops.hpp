@@ -19,8 +19,6 @@ namespace kss { namespace util {
 
      This is similar to "using namespace rel_ops;" but does not have the potential
      side effects of adding a namespace.
-
-     This is "borrowed" from kssutil.
      */
     template <class T>
     struct AddRelOps {
