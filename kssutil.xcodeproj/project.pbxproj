@@ -11,6 +11,9 @@
 		AA2289F7224ED68900E6AB8E /* sequentialmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA2289F6224ED68900E6AB8E /* sequentialmap.cpp */; };
 		AA2289F9224ED93100E6AB8E /* daemonize.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA2289F8224ED93100E6AB8E /* daemonize.hpp */; };
 		AA2289FB224ED93A00E6AB8E /* daemonize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA2289FA224ED93A00E6AB8E /* daemonize.cpp */; };
+		AA2289FE224EDF5800E6AB8E /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA2289FC224EDF5700E6AB8E /* error.cpp */; };
+		AA2289FF224EDF5800E6AB8E /* error.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA2289FD224EDF5700E6AB8E /* error.hpp */; };
+		AA228A01224EE59A00E6AB8E /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA228A00224EE59A00E6AB8E /* error.cpp */; };
 		AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D199F21F2716D002A7FBB /* tokenizer.cpp */; };
 		AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A021F2716E002A7FBB /* tokenizer.hpp */; };
 		AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A321F2729B002A7FBB /* iterator.hpp */; };
@@ -72,6 +75,9 @@
 		AA2289F6224ED68900E6AB8E /* sequentialmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sequentialmap.cpp; sourceTree = "<group>"; };
 		AA2289F8224ED93100E6AB8E /* daemonize.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = daemonize.hpp; sourceTree = "<group>"; };
 		AA2289FA224ED93A00E6AB8E /* daemonize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = daemonize.cpp; sourceTree = "<group>"; };
+		AA2289FC224EDF5700E6AB8E /* error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error.cpp; sourceTree = "<group>"; };
+		AA2289FD224EDF5700E6AB8E /* error.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = error.hpp; sourceTree = "<group>"; };
+		AA228A00224EE59A00E6AB8E /* error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error.cpp; sourceTree = "<group>"; };
 		AA4D199F21F2716D002A7FBB /* tokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
 		AA4D19A021F2716E002A7FBB /* tokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokenizer.hpp; sourceTree = "<group>"; };
 		AA4D19A321F2729B002A7FBB /* iterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iterator.hpp; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AA2289FA224ED93A00E6AB8E /* daemonize.cpp */,
 				AA2289F8224ED93100E6AB8E /* daemonize.hpp */,
+				AA2289FC224EDF5700E6AB8E /* error.cpp */,
+				AA2289FD224EDF5700E6AB8E /* error.hpp */,
 				AA4D19A321F2729B002A7FBB /* iterator.hpp */,
 				AA4D19B521F2CFD1002A7FBB /* raii.hpp */,
 				AAF21799224C7442001B85B0 /* rtti.cpp */,
@@ -209,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
+				AA228A00224EE59A00E6AB8E /* error.cpp */,
 				AA4D19A521F2775B002A7FBB /* iterator.cpp */,
 				AACCD4C821F19D5000C270C7 /* ksstest.cpp */,
 				AACCD4C921F19D5000C270C7 /* ksstest.hpp */,
@@ -247,6 +256,7 @@
 				AAF217A1224C7AF2001B85B0 /* uuid.hpp in Headers */,
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
 				AAF2179A224C7442001B85B0 /* rtti.hpp in Headers */,
+				AA2289FF224EDF5800E6AB8E /* error.hpp in Headers */,
 				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
 				AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */,
 			);
@@ -358,6 +368,7 @@
 				AAF2179B224C7442001B85B0 /* rtti.cpp in Sources */,
 				AAF217A6224DBAF1001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A0224C7AF2001B85B0 /* uuid.cpp in Sources */,
+				AA2289FE224EDF5800E6AB8E /* error.cpp in Sources */,
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
 				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
@@ -382,6 +393,7 @@
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,
 				AA4D19B021F28561002A7FBB /* tokenizer.cpp in Sources */,
+				AA228A01224EE59A00E6AB8E /* error.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
