@@ -4,10 +4,7 @@
 //
 //  Created by Steven W. Klassen on 2013-01-04.
 //  Copyright (c) 2013 Klassen Software Solutions. All rights reserved.
-//
-//  Permission is hereby granted to use/modify/publish this code without restriction or
-//  requirement other than you are not allowed to hinder others from doing the same.
-//  No warranty or other guarantee is given regarding the use of this code.
+//  Licensing follows the MIT License.
 //
 
 #include <cassert>

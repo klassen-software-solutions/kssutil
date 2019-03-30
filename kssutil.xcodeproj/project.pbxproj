@@ -27,6 +27,9 @@
 		AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */; };
 		AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */; };
 		AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19C121F2D887002A7FBB /* stringutil.cpp */; };
+		AABE9075224F004800C355B8 /* convert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AABE9073224F004700C355B8 /* convert.hpp */; };
+		AABE9076224F004800C355B8 /* convert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AABE9074224F004700C355B8 /* convert.cpp */; };
+		AABE9078224F01EB00C355B8 /* convert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AABE9077224F01EA00C355B8 /* convert.cpp */; };
 		AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4B321F19C7B00C270C7 /* version.hpp */; };
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
@@ -93,6 +96,9 @@
 		AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
 		AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stringutil.hpp; sourceTree = "<group>"; };
 		AA4D19C121F2D887002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
+		AABE9073224F004700C355B8 /* convert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convert.hpp; sourceTree = "<group>"; };
+		AABE9074224F004700C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
+		AABE9077224F01EA00C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				AA4D19AB21F28283002A7FBB /* _contract.cpp */,
 				AA4D19AC21F28283002A7FBB /* _contract.hpp */,
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
+				AABE9074224F004700C355B8 /* convert.cpp */,
+				AABE9073224F004700C355B8 /* convert.hpp */,
 				AA2289FA224ED93A00E6AB8E /* daemonize.cpp */,
 				AA2289F8224ED93100E6AB8E /* daemonize.hpp */,
 				AA2289FC224EDF5700E6AB8E /* error.cpp */,
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
+				AABE9077224F01EA00C355B8 /* convert.cpp */,
 				AA228A00224EE59A00E6AB8E /* error.cpp */,
 				AA4D19A521F2775B002A7FBB /* iterator.cpp */,
 				AACCD4C821F19D5000C270C7 /* ksstest.cpp */,
@@ -257,6 +266,7 @@
 				AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */,
 				AAF2179A224C7442001B85B0 /* rtti.hpp in Headers */,
 				AA2289FF224EDF5800E6AB8E /* error.hpp in Headers */,
+				AABE9075224F004800C355B8 /* convert.hpp in Headers */,
 				AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */,
 				AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */,
 			);
@@ -372,6 +382,7 @@
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
 				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
+				AABE9076224F004800C355B8 /* convert.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +403,7 @@
 				AAF217A3224C80AE001B85B0 /* uuid.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,
+				AABE9078224F01EB00C355B8 /* convert.cpp in Sources */,
 				AA4D19B021F28561002A7FBB /* tokenizer.cpp in Sources */,
 				AA228A01224EE59A00E6AB8E /* error.cpp in Sources */,
 			);

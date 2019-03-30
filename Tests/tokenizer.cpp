@@ -4,6 +4,7 @@
 //
 //  Created by Steven W. Klassen on 2019-01-18.
 //  Copyright © 2019 Klassen Software Solutions. All rights reserved.
+//  Licensing follows the MIT License.
 //
 
 #include <iostream>
