@@ -44,6 +44,9 @@
 		AACAA6B8225002510005F45E /* programoptions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACAA6B6225002510005F45E /* programoptions.hpp */; };
 		AACAA6B9225002510005F45E /* programoptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6B7225002510005F45E /* programoptions.cpp */; };
 		AACAA6BB225056860005F45E /* programoptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6BA225056850005F45E /* programoptions.cpp */; };
+		AACAA6BE225067DD0005F45E /* argumentvector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6BC225067DD0005F45E /* argumentvector.cpp */; };
+		AACAA6BF225067DD0005F45E /* argumentvector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACAA6BD225067DD0005F45E /* argumentvector.hpp */; };
+		AACAA6C1225108A70005F45E /* argumentvector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACAA6C0225108A70005F45E /* argumentvector.cpp */; };
 		AACCD4B521F19C7B00C270C7 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4B321F19C7B00C270C7 /* version.hpp */; };
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
@@ -127,6 +130,9 @@
 		AACAA6B6225002510005F45E /* programoptions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = programoptions.hpp; sourceTree = "<group>"; };
 		AACAA6B7225002510005F45E /* programoptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = programoptions.cpp; sourceTree = "<group>"; };
 		AACAA6BA225056850005F45E /* programoptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = programoptions.cpp; sourceTree = "<group>"; };
+		AACAA6BC225067DD0005F45E /* argumentvector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = argumentvector.cpp; sourceTree = "<group>"; };
+		AACAA6BD225067DD0005F45E /* argumentvector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = argumentvector.hpp; sourceTree = "<group>"; };
+		AACAA6C0225108A70005F45E /* argumentvector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = argumentvector.cpp; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 				AA4D19AC21F28283002A7FBB /* _contract.hpp */,
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AABE907F224F1F2400C355B8 /* algorithm.hpp */,
+				AACAA6BC225067DD0005F45E /* argumentvector.cpp */,
+				AACAA6BD225067DD0005F45E /* argumentvector.hpp */,
 				AACAA6B0224FE5740005F45E /* attributes.cpp */,
 				AACAA6B1224FE5740005F45E /* attributes.hpp */,
 				AABE907D224F0FB300C355B8 /* circular_array.hpp */,
@@ -262,6 +270,7 @@
 			children = (
 				AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */,
 				AABE9081224F1FEB00C355B8 /* algorithm.cpp */,
+				AACAA6C0225108A70005F45E /* argumentvector.cpp */,
 				AACAA6B4224FE8D70005F45E /* attributes.cpp */,
 				AABE9087224F231300C355B8 /* circular_array.cpp */,
 				AABE907B224F0BFA00C355B8 /* containerutil.cpp */,
@@ -302,6 +311,7 @@
 				AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */,
 				AA2289F5224ECF5300E6AB8E /* sequentialmap.hpp in Headers */,
 				AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */,
+				AACAA6BF225067DD0005F45E /* argumentvector.hpp in Headers */,
 				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
 				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
 				AABE907A224F095900C355B8 /* containerutil.hpp in Headers */,
@@ -425,6 +435,7 @@
 				AA2289FB224ED93A00E6AB8E /* daemonize.cpp in Sources */,
 				AAF2179B224C7442001B85B0 /* rtti.cpp in Sources */,
 				AACAA6B9225002510005F45E /* programoptions.cpp in Sources */,
+				AACAA6BE225067DD0005F45E /* argumentvector.cpp in Sources */,
 				AAF217A6224DBAF1001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A0224C7AF2001B85B0 /* uuid.cpp in Sources */,
 				AA2289FE224EDF5800E6AB8E /* error.cpp in Sources */,
@@ -453,6 +464,7 @@
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
 				AAF217A9224DC1B2001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A3224C80AE001B85B0 /* uuid.cpp in Sources */,
+				AACAA6C1225108A70005F45E /* argumentvector.cpp in Sources */,
 				AACAA6BB225056860005F45E /* programoptions.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
 				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,

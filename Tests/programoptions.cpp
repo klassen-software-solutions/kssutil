@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 
+#include <kss/util/argumentvector.hpp>
 #include <kss/util/programoptions.hpp>
 
 #include "ksstest.hpp"
@@ -22,16 +23,19 @@ using namespace std;
 using namespace kss::util::po;
 using namespace kss::test;
 
-static char* invalid_command_line[] = { };
-static const char* empty_command_line[] = { "/bin/someprog" };
-static const char* const shortargs_command_line[] = { "/bin/someprog", "-h", "-q" };
-static const char* const longargs_command_line[] = { "/bin/someprog", "--help", "--quiet" };
-static const char* const combined_command_line[] = { "/bin/someprog", "-h", "--quiet" };
-static const char* const complex_command_line[] = { "/bin/someprog", "-h", "--filename=/etc/somefile", "-c", "5", "extra", "argument" };
-static const char* const incomplete_command_line[] = { "/bin/someprog", "-c", "5", "--filename" };
-static const char* const optarg_command_line[] = { "/bin/someprog", "--filename=hi" };
-
 namespace {
+    static ArgumentVector emptyCommandLine { "/bin/someprog" };
+    static ArgumentVector shortArgsCommandLine { "/bin/someprog", "-h", "-q" };
+    static ArgumentVector complexCommandLine {
+        "/bin/someprog",
+        "-h",
+        "--filename=/etc/somefile",
+        "-c",
+        "5",
+        "extra",
+        "argument"
+    };
+
 	void add_simple_options(ProgramOptions& po) {
         po.add(Option { "help", "Display a usage message" });
         po.add(Option { "quiet", "Show less information" });
@@ -45,30 +49,26 @@ namespace {
     void testConstSettings(const ProgramOptions& po) {
         const auto s = po.option<string>("filename");
     }
+
+    void perform_simple_checks(int argc, const char* const* argv) {
+        ProgramOptions opts {
+            { "badValue", "", noShortOption, HasArgument::optional, "not an integer" }
+        };
+        add_simple_options(opts);
+        opts.parse(argc, (char* const *)argv);
+        KSS_ASSERT(opts.hasOption("help"));
+        KSS_ASSERT(opts.hasOption("quiet"));
+        KSS_ASSERT(!opts.hasOption("hi"));
+        KSS_ASSERT(throwsException<invalid_argument>([&] {
+            opts.option<int>("help");
+        }));
+        KSS_ASSERT(throwsException<system_error>([&] {
+            opts.option<int>("badValue");
+        }));
+    }
 }
 
-#define SIZEOF(ar) sizeof(ar)/sizeof(*ar)
-
-
-static void perform_simple_checks(int argc, const char* const* argv) {
-    ProgramOptions opts {
-        { "badValue", "", noShortOption, HasArgument::optional, "not an integer" }
-    };
-	add_simple_options(opts);
-    opts.parse(argc, (char* const *)argv);
-    KSS_ASSERT(opts.hasOption("help"));
-    KSS_ASSERT(opts.hasOption("quiet"));
-    KSS_ASSERT(!opts.hasOption("hi"));
-    KSS_ASSERT(throwsException<invalid_argument>([&] {
-        opts.option<int>("help");
-    }));
-    KSS_ASSERT(throwsException<system_error>([&] {
-        opts.option<int>("badValue");
-    }));
-}
-
-
-static TestSuite potests("po::programoptions", {
+static TestSuite ts("po::programoptions", {
     make_pair("basic tests", [] {
         KSS_ASSERT(isTrue([] {
             ProgramOptions opts;
@@ -77,49 +77,55 @@ static TestSuite potests("po::programoptions", {
 
         KSS_ASSERT(throwsException<invalid_argument>([] {
             ProgramOptions opts;
-            opts.parse(SIZEOF(invalid_command_line), invalid_command_line);
+            ArgumentVector invalidCommandLine;
+            opts.parse(invalidCommandLine.argc(), invalidCommandLine.argv());
         }));
 
         KSS_ASSERT(isFalse([] {
             ProgramOptions opts;
             add_simple_options(opts);
-            opts.parse(SIZEOF(empty_command_line), empty_command_line);
+            opts.parse(emptyCommandLine.argc(), emptyCommandLine.argv());
             return opts.usage().empty();
         }));
 
         // Various versions of the simple check.
-        perform_simple_checks(SIZEOF(shortargs_command_line), shortargs_command_line);
-        perform_simple_checks(SIZEOF(longargs_command_line), longargs_command_line);
-        perform_simple_checks(SIZEOF(combined_command_line), combined_command_line);
+        ArgumentVector longArgsCommandLine { "/bin/someprog", "--help", "--quiet" };
+        ArgumentVector combinedCommandLine { "/bin/someprog", "-h", "--quiet" };
+
+        perform_simple_checks(shortArgsCommandLine.argc(), shortArgsCommandLine.argv());
+        perform_simple_checks(longArgsCommandLine.argc(), longArgsCommandLine.argv());
+        perform_simple_checks(combinedCommandLine.argc(), combinedCommandLine.argv());
 
         // An invalid line test.
         KSS_ASSERT(throwsException<invalid_argument>([] {
+            ArgumentVector incompleteCommandLine { "/bin/someprog", "-c", "5", "--filename" };
             ProgramOptions opts;
             add_complex_options(opts);
-            opts.parse(SIZEOF(incomplete_command_line), incomplete_command_line);
+            opts.parse(incompleteCommandLine.argc(), incompleteCommandLine.argv());
         }));
     }),
     make_pair("more complex test", [] {
         ProgramOptions opts;
         add_simple_options(opts);
         add_complex_options(opts);
-        opts.parse(SIZEOF(complex_command_line), complex_command_line);
+        opts.parse(complexCommandLine.argc(), complexCommandLine.argv());
         KSS_ASSERT(opts.hasOption("Count"));
         KSS_ASSERT(!opts.hasOption("extra"));
         KSS_ASSERT(opts.option<string>("filename") == "/etc/somefile");
         KSS_ASSERT(opts.option<int>("Count") == 5);
     }),
     make_pair("default value", [] {
+        ArgumentVector optArgCommandLine { "/bin/someprog", "--filename=hi" };
         ProgramOptions opts;
         add_complex_options(opts);
-        opts.parse(SIZEOF(optarg_command_line), optarg_command_line);
+        opts.parse(optArgCommandLine.argc(), optArgCommandLine.argv());
         KSS_ASSERT(opts.hasOption("Count"));
         KSS_ASSERT(opts.option<long>("Count") == 10L);
     }),
     make_pair("missing required argument", [] {
         ProgramOptions opts;
         add_complex_options(opts);
-        opts.parse(SIZEOF(empty_command_line), empty_command_line);
+        opts.parse(emptyCommandLine.argc(), emptyCommandLine.argv());
         KSS_ASSERT(!opts.hasOption("filename"));
         KSS_ASSERT(throwsException<invalid_argument>([&] {
             opts.option<string>("filename");
@@ -129,7 +135,7 @@ static TestSuite potests("po::programoptions", {
         ProgramOptions opts;
         add_simple_options(opts);
         add_complex_options(opts);
-        opts.parse(SIZEOF(empty_command_line), empty_command_line);
+        opts.parse(emptyCommandLine.argc(), emptyCommandLine.argv());
         KSS_ASSERT(!opts.hasOption("help"));
         KSS_ASSERT(!opts.hasOption("filename"));
     }),
@@ -138,17 +144,17 @@ static TestSuite potests("po::programoptions", {
             { "help", "Display a usage message" }
         };
         KSS_ASSERT(throwsException<invalid_argument>([&] {
-            po.parse(SIZEOF(shortargs_command_line), shortargs_command_line);
+            po.parse(shortArgsCommandLine.argc(), shortArgsCommandLine.argv());
         }));
         KSS_ASSERT(doesNotThrowException([&] {
-            po.parse(SIZEOF(shortargs_command_line), shortargs_command_line, true);
+            po.parse(shortArgsCommandLine.argc(), shortArgsCommandLine.argv(), true);
         }));
     }),
     make_pair("bug 48 - option should be const", [] {
         ProgramOptions opts;
         add_simple_options(opts);
         add_complex_options(opts);
-        opts.parse(SIZEOF(complex_command_line), complex_command_line);
+        opts.parse(complexCommandLine.argc(), complexCommandLine.argv());
         testConstSettings(opts);
         // There is nothing to check at runtime, this is a compiler test.
         KSS_ASSERT(true);

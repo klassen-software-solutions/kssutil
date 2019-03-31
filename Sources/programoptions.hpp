@@ -63,7 +63,7 @@ namespace kss { namespace util { namespace po {
         /*!
          Construct the program options with an optional starting list.
          */
-        ProgramOptions(std::initializer_list<Option> options = std::initializer_list<Option>());
+        explicit ProgramOptions(std::initializer_list<Option> options = std::initializer_list<Option>());
         ~ProgramOptions();
 
         // Moving is allowed, but copying is not.
@@ -83,8 +83,8 @@ namespace kss { namespace util { namespace po {
         void add(Option&& o);
         void add(std::initializer_list<Option> options);
 
-        template <class OptionIterator>
-        void add(OptionIterator first, OptionIterator last) {
+        template <class InputIterator>
+        void add(InputIterator first, InputIterator last) {
             if (first == last) {
                 throw std::invalid_argument("first and last iterator are the same");
             }

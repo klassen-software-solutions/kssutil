@@ -128,8 +128,8 @@ struct ProgramOptions::Impl {
 ////
 
 ProgramOptions::ProgramOptions(initializer_list<Option> options) : _impl(new Impl()) {
-    for (const auto& o : options) {
-        add(o);
+    if (options.size() > 0) {
+        add(options);
     }
 
     contract::postconditions({
@@ -169,9 +169,6 @@ void ProgramOptions::add(Option&& o) {
 }
 
 void ProgramOptions::add(initializer_list<Option> options) {
-    contract::preconditions({
-        KSS_EXPR(bool(_impl) == true)
-    });
     contract::parameters({
         KSS_EXPR(options.size() > 0)
     });
