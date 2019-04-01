@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Command line argument (program option) parsing.
+ */
+
 #ifndef kssutil_programoptions_hpp
 #define kssutil_programoptions_hpp
 
@@ -53,6 +58,8 @@ namespace kss { namespace util { namespace po {
     };
 
     /*!
+     \brief Command line argument parsing.
+     
      ProgramOptions is used to parse command lines. In addition to parsing the command
      line, it also keeps the argument state allowing to to query the results without
      having to keep track of separate variables.
@@ -95,6 +102,8 @@ namespace kss { namespace util { namespace po {
 
         /*!
          Parse the given command line.
+         @param argc the number of arguments in the vector
+         @param argv the argument vector
          @param ignoreUnknownOptions if true then options that are not specified will
             be quietly ignored instead of throwing an exception.
          @throws std::invalid_argument if the command line could not be parsed given

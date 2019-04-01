@@ -24,7 +24,7 @@
 namespace kss { namespace util { namespace strings {
 
     /*!
-     Write-through substring.
+     \brief Write-through substring.
 
      The SubString class provides writable access to a substring
      of another string.  Note that since this is backed by the original

@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Run Time Type Information.
+ */
+
 #if !defined(kssutil_rtti_h)
 #define kssutil_rtti_h
 

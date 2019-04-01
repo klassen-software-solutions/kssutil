@@ -7,12 +7,19 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous algorithms related to memory.
+ */
+
 #ifndef kssutil_memory_hpp
 #define kssutil_memory_hpp
 
 namespace kss { namespace util { namespace memory {
 
     /*!
+     \brief Similar to std::default_delete but does not actually do anything.
+
      This is similar to std::default_delete except that this class actually does nothing.
      It's purpose is for areas where you want the semantics of a shared_ptr but do not
      actually want the pointer deleted when it is done because it is being managed

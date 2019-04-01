@@ -9,6 +9,11 @@
 // 	other than to recognize that others are allowed to do the same.
 //
 
+/*!
+ \file
+ \brief UUID generation and handling.
+ */
+
 #ifndef kssutil_uuid_hpp
 #define kssutil_uuid_hpp
 
@@ -21,13 +26,15 @@
 
 namespace kss { namespace util {
 
-    /**
-     * Thin wrapper around the uuid_t type. This is done primarily to allow it to be used
-     * in C++ template overrides, but is useful in its own right as a more sane alternative
-     * to using the C API.
-     *
-     * Note that the methods that require parsing a uuid from a string will throw an
-     * invalid_argument exception if the parsing fails.
+    /*!
+      \brief C++ wrapper around the uuid_t type.
+
+      Thin wrapper around the uuid_t type. This is done primarily to allow it to be used
+      in C++ template overrides, but is useful in its own right as a more sane alternative
+      to using the C API.
+
+      Note that the methods that require parsing a uuid from a string will throw an
+      invalid_argument exception if the parsing fails.
      */
     class UUID : public AddRelOps<UUID> {
     public:

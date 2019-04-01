@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Auto-generation of relational operators.
+ */
+
 #ifndef kssutil_add_rel_ops_hpp
 #define kssutil_add_rel_ops_hpp
 
@@ -14,6 +19,8 @@
 namespace kss { namespace util {
 
     /*!
+     \brief Add the operators !=, <=, > and >= assuming the existance of == and <.
+
      By subclassing your type T from add_rel_ops<T> this will add the "missing" operators
      provided that T defines operator== and operator<.
 

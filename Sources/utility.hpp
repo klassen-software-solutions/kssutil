@@ -13,7 +13,7 @@
 #include <exception>
 #include <iostream>
 
-namespace kss { namespace utility {
+namespace kss { namespace util {
 
     namespace _private {
         // Use these macros if a condition fails in a header file. (In a cpp file

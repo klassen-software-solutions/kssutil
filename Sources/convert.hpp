@@ -21,6 +21,10 @@
 
 #include "rtti.hpp"
 
+/*!
+ \file
+ \brief Convert strings to other types.
+ */
 
 namespace kss { namespace util { namespace strings {
 

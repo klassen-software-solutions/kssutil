@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief General attributes API.
+ */
+
 #ifndef kssutil_attributes_hpp
 #define kssutil_attributes_hpp
 
@@ -20,6 +25,8 @@
 namespace kss { namespace util {
 
     /*!
+     \brief Adds an attribures API to subclasses.
+
      Base class used to add an attributes API to other classes. Simply subclass from
      this one in order to add the API.
      */

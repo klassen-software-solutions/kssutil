@@ -22,10 +22,16 @@
 #include <kss/util/iterator.hpp>
 #include <kss/util/memory.hpp>
 
+/*!
+ \file
+ \brief Implementation of a circular array.
+ */
 
 namespace kss { namespace util { namespace containers {
 
     /*!
+     \brief Almost contiguous array referenced in a circular manner.
+
      A circular array is a container similar to a vector in that it
      contains randomly accessible, mostly contiguous, elements.  It
      differs in that elements may be pushed and popped at either the

@@ -10,6 +10,11 @@
 // Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous algorithms.
+ */
+
 
 #ifndef kssutil_algorithm_hpp
 #define kssutil_algorithm_hpp

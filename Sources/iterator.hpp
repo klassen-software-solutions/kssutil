@@ -14,6 +14,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Base classes to easily generate custom iterators.
+ */
+
 
 #ifndef kssutil_iterator_hpp
 #define kssutil_iterator_hpp
@@ -30,6 +35,8 @@
 namespace kss { namespace util { namespace iterators {
 
     /*!
+     \brief Base implementation of a forward iterator.
+
      The ForwardIterator class provides a forward iterator for any class that can
      move through its elements in a single direction. Specifically it needs to support
      the following operations:
@@ -165,6 +172,8 @@ namespace kss { namespace util { namespace iterators {
 
 
     /*!
+     \brief Base implementation of a random access iterator.
+     
      The RandomAccessIterator class provides a random access iterator for any container
      that allows random access via the following operations. Note that the non-const
      operator is needed for RandomAccessIterator.
@@ -287,6 +296,8 @@ namespace kss { namespace util { namespace iterators {
 
 
     /*!
+     \brief Base implementation of a const version of a random access iterator.
+
      Const version of the random access iterator. The comments for RandomAccessIterator
      follow for this one as well.
      */
@@ -389,6 +400,8 @@ namespace kss { namespace util { namespace iterators {
 
 
     /*!
+     \brief Base implementation of a random access iterator that generate elements as needed.
+     
      Copy version of the random access iterator. The comments for RandomAccessIterator
      follow for this one as well.
 

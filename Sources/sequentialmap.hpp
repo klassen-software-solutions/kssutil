@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Map implementation that maintains the order of insertion.
+ */
+
 #ifndef kssutil_sequentialmap_hpp
 #define kssutil_sequentialmap_hpp
 
@@ -24,6 +29,8 @@
 namespace kss { namespace util { namespace containers {
 
     /*!
+      \brief Combination of a list and a map
+
       This class combines a list and a map to provide a container where items can
       be looked up quickly (via the map) but where the iterators preserve the order
       with which things are added.

@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Generate argc/argv groups.
+ */
+
 #ifndef argumentvector_hpp
 #define argumentvector_hpp
 
@@ -18,6 +23,8 @@
 namespace kss { namespace util { namespace po {
 
     /*!
+     \brief Creates argc/argv type groups based on lists of strings.
+     
      ArgumentVector is used to create argv type data. It's primary use case is in the
      generation of unit tests, but it is also useful if you need to call the various
      forms of execv.

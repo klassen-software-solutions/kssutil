@@ -133,6 +133,7 @@
 		AACAA6BC225067DD0005F45E /* argumentvector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = argumentvector.cpp; sourceTree = "<group>"; };
 		AACAA6BD225067DD0005F45E /* argumentvector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = argumentvector.hpp; sourceTree = "<group>"; };
 		AACAA6C0225108A70005F45E /* argumentvector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = argumentvector.cpp; sourceTree = "<group>"; };
+		AACAA6C22251B0E80005F45E /* intro.dox */ = {isa = PBXFileReference; lastKnownFileType = text; path = intro.dox; sourceTree = "<group>"; };
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 				AA2289F8224ED93100E6AB8E /* daemonize.hpp */,
 				AA2289FC224EDF5700E6AB8E /* error.cpp */,
 				AA2289FD224EDF5700E6AB8E /* error.hpp */,
+				AACAA6C22251B0E80005F45E /* intro.dox */,
 				AA4D19A321F2729B002A7FBB /* iterator.hpp */,
 				AABE9083224F212000C355B8 /* memory.hpp */,
 				AACAA6B7225002510005F45E /* programoptions.cpp */,

@@ -6,6 +6,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Resource Acquisition Is Initialization.
+ */
+
 #ifndef kssutil_raii_h
 #define kssutil_raii_h
 
@@ -14,6 +19,8 @@
 namespace kss { namespace util {
 
     /*!
+     \brief Implementation of the RAII pattern.
+
      RAII (Resource acquisition is initialization) is used to implement the RAII
      pattern without always having to create a custom class.
 
@@ -73,7 +80,9 @@ namespace kss { namespace util {
     };
 
 
-    /**
+    /*!
+     \brief Implementation of a "finally" block.
+
      Provide a "finally" block. This is a shortcut to an RAII that contains no
      initialization code.
      */

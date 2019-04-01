@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous algorithms related to strings.
+ */
+
 #ifndef kssutil_stringutil_hpp
 #define kssutil_stringutil_hpp
 

@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous utilities related to containers.
+ */
+
 #ifndef kssutil_containerutil_hpp
 #define kssutil_containerutil_hpp
 

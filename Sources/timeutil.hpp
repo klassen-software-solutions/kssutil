@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous algorithms related to time_point and duration objects.
+ */
+
 #ifndef kssutil_timeutil_hpp
 #define kssutil_timeutil_hpp
 
@@ -195,7 +200,8 @@ namespace kss { namespace util { namespace time {
      @param loc the locale that the string representation should be using. Assumes
         the current global locale if not specified.
      @param tzone the timezone the string representation is using. Assumes
-     the local time zone of the machine if not specified.
+        the local time zone of the machine if not specified.
+     @param typeArg ignored, used to force the template type
      @throws std::system_error if there is a problem parsing.
      @throws std::invalid_argument if the time zone information cannot be found
         for the given time zone string.

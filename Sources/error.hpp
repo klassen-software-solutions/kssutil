@@ -9,6 +9,11 @@
 // Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Miscellaneous algorithms related to error handling.
+ */
+
 #if !defined(kssutil_error_hpp)
 #define kssutil_error_hpp
 

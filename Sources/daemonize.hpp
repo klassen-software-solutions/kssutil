@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Safely daemonize a program.
+ */
+
 #ifndef kssutil_daemonize_hpp
 #define kssutil_daemonize_hpp
 

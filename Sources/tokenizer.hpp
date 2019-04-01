@@ -7,6 +7,11 @@
 //  Licensing follows the MIT License.
 //
 
+/*!
+ \file
+ \brief Token (separator) based splitting of strings.
+ */
+
 #ifndef kssutil_tokenizer_hpp
 #define kssutil_tokenizer_hpp
 
@@ -16,6 +21,8 @@
 namespace kss { namespace util { namespace strings {
 
     /*!
+     \brief Container like access to a string separated by tokens.
+
      Provide a container-ish view of a string separated by tokens. This is loosly based
      on code published at http://stackoverflow.com/questions/236129/split-a-string-in-c.
 
