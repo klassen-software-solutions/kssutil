@@ -120,7 +120,7 @@ static TestSuite ts("containers::CircularArray", {
         for (CircularArray<long>::iterator it = ca.begin(), last = ca.end(); it != last; ++it) {
             *it += 100L;
         }
-        for (size_t i = 101; i <= 105; ++i) { KSS_ASSERT(ca[i-101] == i); }
+        for (auto i = 101; i <= 105; ++i) { KSS_ASSERT(ca[i-101] == i); }
 
         long l = 101L;
         const CircularArray<long>& cref = ca;
@@ -218,7 +218,7 @@ static TestSuite ts("containers::CircularArray", {
             CircularArray<string> caorig(ca);
             CircularArray<string> ca1orig(ca1);
             ca.swap(ca1);
-            KSS_ASSERT(ca == ca1orig & ca1 == caorig);
+            KSS_ASSERT(ca == ca1orig && ca1 == caorig);
             swap(ca, ca1);
             KSS_ASSERT(ca == caorig && ca1 == ca1orig);
 

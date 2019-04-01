@@ -12,7 +12,15 @@
 #include <iostream>
 #include <stdexcept>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
+// The g++ compiler gives a warning when using isInstanceOf when type C and T are the
+// same type. This isn't a problem - the code still gives the correct answer - and it
+// is a case that would never really come up in the real world, but is included in the
+// unit tests just for completion. So we ignore the error. Note that when we move to
+// C++17, we may be able to resolve this through the use of an "if constexpr" statement.
 #include <kss/util/rtti.hpp>
+#pragma GCC diagnostic pop
 
 #include "ksstest.hpp"
 

@@ -24,7 +24,7 @@ using namespace kss::util::po;
 using namespace kss::test;
 
 namespace {
-    static ArgumentVector emptyCommandLine { "/bin/someprog" };
+    static ArgumentVector emptyCommandLine({ "/bin/someprog" });
     static ArgumentVector shortArgsCommandLine { "/bin/someprog", "-h", "-q" };
     static ArgumentVector complexCommandLine {
         "/bin/someprog",
@@ -51,9 +51,9 @@ namespace {
     }
 
     void perform_simple_checks(int argc, const char* const* argv) {
-        ProgramOptions opts {
+        ProgramOptions opts({
             { "badValue", "", noShortOption, HasArgument::optional, "not an integer" }
-        };
+        });
         add_simple_options(opts);
         opts.parse(argc, (char* const *)argv);
         KSS_ASSERT(opts.hasOption("help"));
@@ -140,9 +140,9 @@ static TestSuite ts("po::programoptions", {
         KSS_ASSERT(!opts.hasOption("filename"));
     }),
     make_pair("ignoring unknown options", [] {
-        ProgramOptions po {
+        ProgramOptions po({
             { "help", "Display a usage message" }
-        };
+        });
         KSS_ASSERT(throwsException<invalid_argument>([&] {
             po.parse(shortArgsCommandLine.argc(), shortArgsCommandLine.argv());
         }));
@@ -160,7 +160,7 @@ static TestSuite ts("po::programoptions", {
         KSS_ASSERT(true);
     }),
     make_pair("invalid adds", [] {
-        ProgramOptions opts {{ "arg1" }};
+        ProgramOptions opts({{ "arg1" }});
         KSS_ASSERT(throwsException<invalid_argument>([&] {
             opts.add(Option { "" });            // empty args are not allowed
         }));

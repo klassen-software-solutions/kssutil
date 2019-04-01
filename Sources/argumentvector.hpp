@@ -43,7 +43,8 @@ namespace kss { namespace util { namespace po {
          Construct the initial vector. Note that the first argument should be the
          program name, but that is not enforced.
          */
-        explicit ArgumentVector(std::initializer_list<std::string> args = std::initializer_list<std::string>());
+        ArgumentVector() = default;
+        explicit ArgumentVector(std::initializer_list<std::string> args);
         ArgumentVector(const ArgumentVector& av);
         ArgumentVector(ArgumentVector&&) = default;
         ArgumentVector& operator=(const ArgumentVector& av);

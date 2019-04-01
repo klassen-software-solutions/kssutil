@@ -9,11 +9,13 @@
 
 #include <algorithm>
 #include <cassert>
+#include <cctype>
 #include <cerrno>
 #include <cstdarg>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <cwctype>
 #include <new>
 #include <system_error>
 

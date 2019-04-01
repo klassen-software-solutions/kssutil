@@ -51,16 +51,16 @@ static TestSuite ts("po::argumentvector", {
             return matches(av, {});
         }));
         KSS_ASSERT(isTrue([] {
-            ArgumentVector av { "one", "two", "three", "four" };
+            ArgumentVector av({ "one", "two", "three", "four" });
             return matches(av, { "one", "two", "three", "four" });
         }));
         KSS_ASSERT(isTrue([] {
-            ArgumentVector av1 { "one", "two", "three", "four" };
+            ArgumentVector av1({ "one", "two", "three", "four" });
             ArgumentVector av(move(av1));
             return matches(av, { "one", "two", "three", "four" });
         }));
         KSS_ASSERT(isTrue([] {
-            ArgumentVector av1 { "one", "two", "three", "four" };
+            ArgumentVector av1({ "one", "two", "three", "four" });
             ArgumentVector av = move(av1);
             return matches(av, { "one", "two", "three", "four" });
         }));

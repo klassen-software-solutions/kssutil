@@ -236,7 +236,7 @@ namespace kss { namespace util { namespace containers {
             }
             _vec.erase(first, last);
             for (typename std::map<Key, size_t, Compare, MAlloc>::iterator it = _map.begin(), stop = _map.end(); it != stop; ++it) {
-                if (it->second >= i) {
+                if (it->second >= size_type(i)) {
                     it->second -= size_type(n);
                 }
             }

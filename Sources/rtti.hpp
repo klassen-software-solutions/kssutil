@@ -16,6 +16,7 @@
  */
 
 #include <string>
+#include <type_traits>
 #include <typeinfo>
 
 namespace kss { namespace util { namespace rtti {
@@ -54,8 +55,12 @@ namespace kss { namespace util { namespace rtti {
      */
     template <typename C, typename T>
     bool isInstanceOf(const T& t) noexcept {
-        if (typeid(t) == typeid(C)) { return true; }
-        if (dynamic_cast<const C*>(&t) != NULL) { return true; }
+        if (std::is_base_of<C, T>::value) {
+            return true;
+        }
+        if (dynamic_cast<const C*>(&t) != nullptr) {
+            return true;
+        }
         return false;
     }
 
