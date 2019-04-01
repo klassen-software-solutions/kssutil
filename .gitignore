@@ -1,0 +1,10 @@
+.build
+.prereqs
+docs
+docs.zip
+project.xcworkspace
+REVISION
+Sources/_license_internal.h
+Sources/_version_internal.h
+Sources/all.h
+

@@ -1,0 +1,73 @@
+/*!
+ \mainpage
+
+ # Using the library
+
+ ## Accessing the header files
+
+ The recommended way to use this library
+ is to include the all.h header file. This will include all the public headers and has
+ two advantages over including them individually:
+
+ 1. You don't have to remember all the individual filenames, and
+ 2. using all.h allows the compiler to make better use of precompiled headers.
+
+ So, the typical include would be
+
+     #include <kss/util/all.h>
+
+ You can include the individual headers separately if you really want to, but note that
+ you will still need to include the "kss/util" prefix for each of them, even though that
+ is not reported in the Doxygen generated documentation.
+
+ ## Accessing the library file
+
+ The created library will always be a dynamic library called kssutil. Hence you would add
+
+     -lkssutil
+
+ to your build.
+
+ ## License
+
+ Unless otherwise specified, the files in this library are licensed according to the MIT
+ license as shown below.
+
+  <BLOCKQUOTE>
+  \include LICENSE
+
+  </BLOCKQUOTE>
+
+ */
+
+//! All Klassen Software Solutions libraries begin with this namespace
+namespace kss {
+
+    //! General utility methods that don't fit into any of the other categories
+    namespace util {
+
+        //! Containers and items related to containers
+        namespace containers {}
+
+        //! Classes used to help build custom iterators
+        namespace iterators {}
+
+        //! Items related to dealing with memory, in particular the destruction of objects
+        namespace memory {}
+
+        //! Program options (i.e. command line arguments)
+        namespace po {}
+
+        //! Items related to processes
+        namespace process {}
+
+        //! Run time type information, such as name demangling and type identification
+        namespace rtti {}
+
+        //! Items related to string handling
+        namespace strings {}
+
+        //! Items related to parsing, formatting, and manipulating time_point and duration objects
+        namespace time {}
+    }
+}
