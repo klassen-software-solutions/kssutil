@@ -48,25 +48,24 @@ namespace kss { namespace util { namespace rtti {
         return demangle(typeid(t).name());
     }
 
-    /**
+    /*!
      Returns true if t is a typeof C. This will be true if T and C are the same
      types or if T is a subclass of C. Note that the intended way to call this
-     is to explicitly specify C. For example if B is a subclass of A then
-     B b;
-     isinstanceof<A>(b), and
-     isinstanceof<B>(b) should both be true.
+     is to explicitly specify C. For example if B is a subclass of A and if we
+     have `B b;`, then `isInstanceOf<A>(b)`, and `isInstanceOf<B>(b)` should
+     both be true.
 
      @throws std::bad_typeid if t is a NULL pointer (pointer version only)
      */
     template <typename C, typename T>
-    bool isInstanceOf(const T& t) noexcept {
-        if (std::is_base_of<C, T>::value) {
-            return true;
-        }
-        if (dynamic_cast<const C*>(&t) != nullptr) {
-            return true;
-        }
-        return false;
+    std::enable_if_t<!std::is_same<C, T>::value, bool>
+    inline isInstanceOf(const T& t) noexcept {
+        return dynamic_cast<const C*>(&t) != nullptr;
+    }
+
+    template <typename C>
+    constexpr bool isInstanceOf(const C& t) noexcept {
+        return true;
     }
 
     template <typename C, typename T>
