@@ -377,7 +377,7 @@
 		AACCD49721F198CC00C270C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Klassen Software Solutions";
 				TargetAttributes = {
 					AACCD49E21F198CC00C270C7 = {
@@ -631,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -643,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
