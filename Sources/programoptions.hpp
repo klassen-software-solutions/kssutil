@@ -21,6 +21,8 @@
 #include <stdexcept>
 #include <string>
 
+#include <kss/contract/all.h>
+
 #include "convert.hpp"
 
 namespace kss { namespace util { namespace po {
@@ -92,9 +94,9 @@ namespace kss { namespace util { namespace po {
 
         template <class InputIterator>
         void add(InputIterator first, InputIterator last) {
-            if (first == last) {
-                throw std::invalid_argument("first and last iterator are the same");
-            }
+            kss::contract::parameters({
+                KSS_EXPR(first != last)
+            });
             for (auto it = first; it != last; ++it) {
                 add(*it);
             }

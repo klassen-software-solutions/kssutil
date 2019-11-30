@@ -11,16 +11,17 @@
 #define kssutil_circular_array_hpp
 
 #include <algorithm>
-#include <cassert>
 #include <initializer_list>
 #include <iterator>
 #include <memory>
 #include <stdexcept>
 #include <utility>
 
-#include <kss/util/algorithm.hpp>
-#include <kss/util/iterator.hpp>
-#include <kss/util/memory.hpp>
+#include <kss/contract/all.h>
+
+#include "algorithm.hpp"
+#include "iterator.hpp"
+#include "memory.hpp"
 
 /*!
  \file
@@ -88,12 +89,13 @@ namespace kss { namespace util { namespace containers {
         {
             init(cap);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity == cap);
-            assert(_size == 0);
-            assert(_first == 0);
-            assert(_last == _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity == cap),
+                KSS_EXPR(_size == 0),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR(_last == _size)
+            });
         }
 
         CircularArray(size_type n,
@@ -105,12 +107,13 @@ namespace kss { namespace util { namespace containers {
             init(std::max(n, cap));
             assign(n, val);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity == std::max(n, cap));
-            assert(_size == n);
-            assert(_first == 0);
-            assert((_last == _size) || (_last == 0 && _size == _capacity));
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity == std::max(n, cap)),
+                KSS_EXPR(_size == n),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR((_last == _size) || (_last == 0 && _size == _capacity))
+            });
         }
 
         template <class InputIterator>
@@ -123,12 +126,13 @@ namespace kss { namespace util { namespace containers {
             init(cap);
             assign(first, last);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= cap);
-            assert(_capacity >= _size);
-            assert(_first == 0);
-            assert((_last == _size) || (_last == 0 && _size == _capacity));
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= cap),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR((_last == _size) || (_last == 0 && _size == _capacity))
+            });
         }
 
         CircularArray(const CircularArray& ca,
@@ -139,13 +143,14 @@ namespace kss { namespace util { namespace containers {
             init(std::max(ca.size(), cap));
             assign(ca.begin(), ca.end());
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity == std::max(ca.size(), cap));
-            assert(_size == ca.size());
-            assert(_first == 0);
-            assert((_last == _size) || (_last == 0 && _size == _capacity));
-            assert(*this == ca);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity == std::max(ca.size(), cap)),
+                KSS_EXPR(_size == ca.size()),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR((_last == _size) || (_last == 0 && _size == _capacity)),
+                KSS_EXPR(*this == ca)
+            });
         }
 
         CircularArray(CircularArray&& ca) {
@@ -159,13 +164,14 @@ namespace kss { namespace util { namespace containers {
             ca._array = nullptr;
             ca._capacity = ca._first = ca._last = ca._size = 0;
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= _size);
-            assert(_capacity > 0);
-            assert(ca._array == nullptr);
-            assert(ca._size == 0);
-            assert(ca._capacity == 0);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_capacity > 0),
+                KSS_EXPR(ca._array == nullptr),
+                KSS_EXPR(ca._size == 0),
+                KSS_EXPR(ca._capacity == 0)
+            });
         }
 
         CircularArray(std::initializer_list<value_type> il,
@@ -176,12 +182,13 @@ namespace kss { namespace util { namespace containers {
             init(std::max(il.size(), cap));
             assign(il);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity == std::max(il.size(), cap));
-            assert(_size == il.size());
-            assert(_first == 0);
-            assert((_last == _size) || (_last == 0 && _size == _capacity));
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity == std::max(il.size(), cap)),
+                KSS_EXPR(_size == il.size()),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR((_last == _size) || (_last == 0 && _size == _capacity))
+            });
         }
 
         ~CircularArray() noexcept {
@@ -202,10 +209,11 @@ namespace kss { namespace util { namespace containers {
                 }
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= ca._capacity);
-            assert(*this == ca);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= ca._capacity),
+                KSS_EXPR(*this == ca)
+            });
             return *this;
         }
 
@@ -221,13 +229,14 @@ namespace kss { namespace util { namespace containers {
                 ca.teardown();
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= _size);
-            assert(_capacity > 0);
-            assert(ca._array == nullptr);
-            assert(ca._capacity == 0);
-            assert(ca._size == 0);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_capacity > 0),
+                KSS_EXPR(ca._array == nullptr),
+                KSS_EXPR(ca._capacity == 0),
+                KSS_EXPR(ca._size == 0)
+            });
             return *this;
         }
 
@@ -239,10 +248,11 @@ namespace kss { namespace util { namespace containers {
                 push_back(*it);
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity > 0);
-            assert(_capacity >= _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_capacity > 0)
+            });
         }
 
         void assign(size_type n, const value_type& val) {
@@ -252,10 +262,11 @@ namespace kss { namespace util { namespace containers {
                 push_back(val);
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= _size);
-            assert(_size == n);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_size == n)
+            });
         }
 
         void assign(std::initializer_list<value_type> il) {
@@ -263,10 +274,11 @@ namespace kss { namespace util { namespace containers {
             reserve(il.size());
             assign(il.begin(), il.end());
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= _size);
-            assert(_size == il.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= _size),
+                KSS_EXPR(_size == il.size())
+            });
         }
 
         /*!
@@ -306,10 +318,11 @@ namespace kss { namespace util { namespace containers {
                 do { push_back(val); } while (size() < n);
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_size == n);
-            assert(_capacity >= n);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size == n),
+                KSS_EXPR(_capacity >= n)
+            });
         }
 
         void reserve(size_type cap) {
@@ -320,10 +333,11 @@ namespace kss { namespace util { namespace containers {
             CircularArray ca(*this, cap, _allocator);
             swap(ca);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity >= cap);
-            assert(_capacity >= _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity >= cap),
+                KSS_EXPR(_capacity >= _size)
+            });
         }
 
         void shrink_to_fit() {
@@ -332,8 +346,9 @@ namespace kss { namespace util { namespace containers {
                 swap(tmp);
             }
 
-            // postconditions
-            assert(_capacity == _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_capacity == _size)
+            });
         }
 
         /*!
@@ -342,9 +357,10 @@ namespace kss { namespace util { namespace containers {
          that front() and back() are unchecked access in this implementation.
          */
         reference operator[](size_type n) noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > n);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > n)
+            });
 
             size_type pos = _first + n;
             if (pos >= _capacity) {
@@ -352,32 +368,37 @@ namespace kss { namespace util { namespace containers {
             }
 
             // postconditions
-            assert((pos >= _first && pos < _capacity)
-                   || (pos < _last && _first > _last)
-                   || (pos >= _first && pos < _last));
+            kss::contract::postconditions({
+                KSS_EXPR((pos >= _first && pos < _capacity)
+                         || (pos < _last && _first > _last)
+                         || (pos >= _first && pos < _last))
+            });
             return _array[pos];
         }
 
         const_reference operator[](size_type n) const noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > n);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > n)
+            });
 
             size_type pos = _first + n;
             if (pos >= _capacity) {
                 pos -= _capacity;
             }
 
-            // postconditions
-            assert((pos >= _first && pos < _capacity)
-                   || (pos < _last && _first > _last)
-                   || (pos >= _first && pos < _last));
+            kss::contract::postconditions({
+                KSS_EXPR((pos >= _first && pos < _capacity)
+                         || (pos < _last && _first > _last)
+                         || (pos >= _first && pos < _last))
+            });
             return _array[pos];
         }
 
         reference at(size_type n) {
-            // preconditions
-            assert(_array != nullptr);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr)
+            });
 
             if (n >= _size) {
                 throw std::out_of_range("n is out of range of this circular_array");
@@ -387,16 +408,18 @@ namespace kss { namespace util { namespace containers {
                 pos -= _capacity;
             }
 
-            // postconditions
-            assert((pos >= _first && pos < _capacity)
-                   || (pos < _last && _first > _last)
-                   || (pos >= _first && pos < _last));
+            kss::contract::postconditions({
+                KSS_EXPR((pos >= _first && pos < _capacity)
+                         || (pos < _last && _first > _last)
+                         || (pos >= _first && pos < _last))
+            });
             return _array[pos];
         }
 
         const_reference at(size_type n) const {
-            // preconditions
-            assert(_array != nullptr);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr)
+            });
 
             if (n >= _size) {
                 throw std::out_of_range("n is out of range of this circular_array");
@@ -406,33 +429,37 @@ namespace kss { namespace util { namespace containers {
                 pos -= _capacity;
             }
 
-            // postconditions
-            assert((pos >= _first && pos < _capacity)
-                   || (pos < _last && _first > _last)
-                   || (pos >= _first && pos < _last));
+            kss::contract::postconditions({
+                KSS_EXPR((pos >= _first && pos < _capacity)
+                         || (pos < _last && _first > _last)
+                         || (pos >= _first && pos < _last))
+            });
             return _array[pos];
         }
 
         reference front() noexcept {
-            // precondijtions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             return _array[_first];
         }
 
         const_reference front() const noexcept {
-            // precondijtions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             return _array[_first];
         }
 
         reference back() noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             if (_last == 0) {
                 return _array[_capacity-1];
@@ -443,9 +470,10 @@ namespace kss { namespace util { namespace containers {
         }
 
         const_reference back() const noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             if (_last == 0) {
                 return _array[_capacity-1];
@@ -463,8 +491,9 @@ namespace kss { namespace util { namespace containers {
             value_type v(val);
             push_back(std::move(v));
 
-            // postconditions
-            assert(back() == val);
+            kss::contract::postconditions({
+                KSS_EXPR(back() == val)
+            });
         }
 
         void push_back(value_type&& val) {
@@ -476,32 +505,36 @@ namespace kss { namespace util { namespace containers {
                 _last = 0;
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
-            assert(_capacity >= _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0),
+                KSS_EXPR(_capacity >= _size)
+            });
         }
 
         void pop_back() noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             _last = (_last == 0 ? _capacity - 1 : _last - 1);
             --_size;
             _allocator.destroy(_array+_last);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity > 0);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity > 0)
+            });
         }
 
         void push_front(const value_type& val) {
             value_type v(val);
             push_front(std::move(v));
 
-            // postconditions
-            assert(front() == val);
+            kss::contract::postconditions({
+                KSS_EXPR(front() == val)
+            });
         }
 
         void push_front(value_type&& val) {
@@ -510,16 +543,18 @@ namespace kss { namespace util { namespace containers {
             ++_size;
             _allocator.construct(_array+_first, val);
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
-            assert(_capacity >= _size);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0),
+                KSS_EXPR(_capacity >= _size)
+            });
         }
 
         void pop_front() noexcept {
-            // preconditions
-            assert(_array != nullptr);
-            assert(_size > 0);
+            kss::contract::preconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_size > 0)
+            });
 
             _allocator.destroy(_array+_first);
             ++_first;
@@ -528,9 +563,10 @@ namespace kss { namespace util { namespace containers {
                 _first = 0;
             }
 
-            // postconditions
-            assert(_array != nullptr);
-            assert(_capacity > 0);
+            kss::contract::postconditions({
+                KSS_EXPR(_array != nullptr),
+                KSS_EXPR(_capacity > 0)
+            });
         }
 
         void swap(CircularArray& ca) noexcept {
@@ -555,10 +591,11 @@ namespace kss { namespace util { namespace containers {
             }
             _first = _last = _size = 0;
 
-            // postconditions
-            assert(_size == 0);
-            assert(_first == 0);
-            assert(_last == 0);
+            kss::contract::postconditions({
+                KSS_EXPR(_size == 0),
+                KSS_EXPR(_first == 0),
+                KSS_EXPR(_last == 0)
+            });
         }
 
         /*!
@@ -614,14 +651,18 @@ namespace kss { namespace util { namespace containers {
                 size_type growth = std::max(size_type(10), capacity() / 4);
                 reserve(capacity() + growth);
             }
-            assert(size() < capacity());
+            kss::contract::postconditions({
+                KSS_EXPR(size() < capacity())
+            });
         }
 
         void check_room_for_one_more() {
             if (size() == capacity()) {
                 throw std::length_error("This circular_array is full.");
             }
-            assert(size() < capacity());
+            kss::contract::postconditions({
+                KSS_EXPR(size() < capacity())
+            });
         }
 
         pointer         _array;
@@ -640,6 +681,5 @@ namespace kss { namespace util { namespace containers {
         x.swap(y);
     }
 }}}
-
 
 #endif

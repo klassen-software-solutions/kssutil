@@ -9,12 +9,13 @@
 
 #include <cstring>
 
-#include "_contract.hpp"
+#include <kss/contract/all.h>
+
 #include "argumentvector.hpp"
 
 using namespace std;
 using namespace kss::util::po;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 ArgumentVector::ArgumentVector(initializer_list<string> args) {

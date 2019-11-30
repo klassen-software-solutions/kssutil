@@ -23,20 +23,30 @@ consistent coding standard across the entire library.
 
 ## Prerequisites
 
-This library has one prerequisite - libuuid. On macOS it should already exists, on others you will need
-to install it before this library will build. On Ubuntu Linux the command `sudo apt install uuid-dev`
-should be sufficient.
+This library has the following prerequisites. They will be installed/updated by running `make prereqs`.
+By default they will be installed into `/opt/kss` but you can change that by setting the environment
+variable `KSS_INSTALL_PREFIX`. Note that your user must have permission to create/update items
+in that directory. Alternately you may install each manually. Note that the Xcode project assumes they
+are installed in `/opt/kss`.
+
+* ksscontract - https://github.com/klassen-software-solutions/ksscontract.git
+* libuuid (Linux) - `sudo apt install uuid-dev`
+
 
 ## Installing the Library
 
-To build and install this library, run the following commands
+To build and install this library, run the following commands. Of course you can set the prefix to
+whatever you want for your installation. But `/opt/kss` is what the Xcode projects are configured
+to use. (If you leave out `--prefix`, it will default to `/usr/local` to remain consistent with most
+"tarball" installations.)
 
 ```
-./configure
+./configure --prefix=/opt/kss
 make
 make check
-sudo make install
+make install
 ```
+
 
 ## Contributing
 

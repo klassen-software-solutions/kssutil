@@ -1,5 +1,5 @@
 //
-//  timeutil_cpp.cpp
+//  timeutil.cpp
 //  kssutil
 //
 //  Created by Steven W. Klassen on 2013-01-04.
@@ -17,7 +17,6 @@
 #include <mutex>
 #include <sstream>
 
-#include "_contract.hpp"
 #include "raii.hpp"
 #include "stringutil.hpp"
 #include "timeutil.hpp"
@@ -25,7 +24,7 @@
 using namespace std;
 using namespace kss::util;
 using namespace kss::util::time;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 namespace {

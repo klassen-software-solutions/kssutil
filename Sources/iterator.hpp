@@ -29,8 +29,9 @@
 #include <memory>
 #include <utility>
 
+#include <kss/contract/all.h>
+
 #include "add_rel_ops.hpp"
-#include "utility.hpp"
 
 namespace kss { namespace util { namespace iterators {
 
@@ -135,10 +136,9 @@ namespace kss { namespace util { namespace iterators {
          @throws any exception that container::eof() or container::operator>>(T&) may throw
          */
         ForwardIterator& operator++() {
-            // preconditions
-            if (!_cont) {
-                _KSSUTIL_PRECONDITIONS_FAILED
-            }
+            kss::contract::preconditions({
+                KSS_EXPR(_cont != nullptr)
+            });
 
             if (_cont->hasAnother()) {
                 _cont->next(_value);

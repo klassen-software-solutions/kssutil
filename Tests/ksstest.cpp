@@ -8,8 +8,9 @@
 //
 
 #include <algorithm>
+#include <atomic>
 #include <cassert>
-#include <cstdlib>
+#include <condition_variable>
 #include <ctime>
 #include <exception>
 #include <fstream>
@@ -22,6 +23,7 @@
 #include <set>
 #include <sstream>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include <cxxabi.h>
@@ -427,6 +429,7 @@ namespace {
     static bool                             isQuietMode = false;
     static bool                             isVerboseMode = false;
     static bool                             isParallel = true;
+    static bool                             stopOnFirstFailure = false;
     static string                           filter;
     static string                           xmlReportFilename;
     static string                           jsonReportFilename;
@@ -513,6 +516,7 @@ namespace {
         { "xml", required_argument, nullptr, 'X' },
         { "json", required_argument, nullptr, 'J' },
         { "no-parallel", no_argument, nullptr, 'N' },
+        { "stop-on-first-failure", no_argument, nullptr, 'S' },
         { nullptr, 0, nullptr, 0 }
     };
 
@@ -541,10 +545,12 @@ The following are the accepted command line options:
 -v/--verbose displays more information (-q will override this if present. Specifying
     this option will also cause --no-parallel to be assumed.)
 -f <testprefix>/--filter=<testprefix> only run tests that start with the prefix
----xml=<filename> writes a JUnit test compatible XML to the given filename
+--xml=<filename> writes a JUnit test compatible XML to the given filename
 --json=<filename> writes a gUnit test compatible JSON to the given filename
 --no-parallel will force all tests to be run in the same thread (This is assumed if
     the --verbose option is specified.)
+--stop-on-first-failure will cause the test program to stop shortly after the first failure
+    or error has been detected.
 
 The display options essentially run in three modes.
 
@@ -638,6 +644,9 @@ times that KSS_ASSERT failed) in all the test cases in all the test suites.
                         break;
                     case 'J':
                         jsonReportFilename = getArgument();
+                        break;
+                    case 'S':
+                        stopOnFirstFailure = true;
                         break;
                 }
             }
@@ -1226,6 +1235,16 @@ namespace {
 
         currentSuite = nullptr;
         printTestSuiteSummary(*wrapper);
+
+        if (stopOnFirstFailure) {
+            if (wrapper->numberOfErrors > 0 || wrapper->numberOfFailedTests > 0) {
+                if (!isVerboseMode) {
+                    cerr << endl;
+                }
+                cerr << "Early termination requested, exiting." << endl;
+                exit(wrapper->numberOfErrors + wrapper->numberOfFailedTests);
+            }
+        }
     }
 }
 
@@ -1463,7 +1482,29 @@ namespace kss { namespace test { namespace _private {
     }
 
     bool completesWithinSec(const duration<double>& d, const function<void()>& fn) {
+        // The condition variable is used to ensure that fn does not cause us to stop
+        // more than 4x the requested duration. If it does, we terminate the process.
+        condition_variable cv;
+        mutex m;
+        bool hasCompleted = false;
+        thread th([&] {
+            unique_lock<mutex> l(m);
+            if (!hasCompleted) {
+                cv.wait_for(l, d * 4);
+                if (!hasCompleted) {
+                    terminate();
+                }
+            }
+        });
+
         const auto dur = timeOfExecution(fn);
+        {
+            lock_guard<mutex> l(m);
+            hasCompleted = true;
+            cv.notify_all();
+        }
+        th.join();
+
         const auto ret = (dur <= d);
         if (!ret) {
             _private::setFailureDetails("actual duration was " + to_string(dur.count()) + "s");
