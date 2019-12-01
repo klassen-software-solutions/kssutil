@@ -78,7 +78,7 @@ def _install_or_update(prereq: Dict):
         _rebuild_and_install(dirname)
     elif "command" in prereq:
         logging.info("Found %s", prereq['command'])
-        _run(prereq['command'])
+        _run(prereq['command'], directory=CWD)
     else:
         logging.error("Could not determine how to handle %s", prereq)
 
@@ -92,15 +92,15 @@ def _main():
     logging.info("Found %d prerequisites", len(prereqs))
     if len(prereqs) == 0:
         sys.exit(0)
-    cwd = os.getcwd()
     _change_to_prereqs_directory()
     for prereq in prereqs:
         _install_or_update(prereq)
-    os.chdir(cwd)
+    os.chdir(CWD)
 
 if __name__ == '__main__':
     _OS = _get_run('uname -s')
     _MACHINE = _get_run('uname -m')
+    CWD = os.getcwd()
     ARCH = "%s-%s" % (_OS, _MACHINE)
     PREREQS_DIR = ".prereqs/%s" % ARCH
     INSTALL_PREFIX = os.environ.get('KSS_INSTALL_PREFIX', '/opt/kss')

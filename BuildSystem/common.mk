@@ -42,11 +42,10 @@ else
 	CFLAGS := $(CFLAGS) $(OPTIMIZED_FLAGS)
 endif
 
-ifneq ("$(wildcard /opt/kss)","")
-    CFLAGS := $(CFLAGS) -I/opt/kss/include
-    LDFLAGS := $(LDFLAGS) -L/opt/kss/lib
-    LDPATHEXPR := $(LDPATHEXPR):/opt/kss/lib
-endif
+KSS_INSTALL_PREFIX ?= /opt/kss
+CFLAGS := $(CFLAGS) -I$(KSS_INSTALL_PREFIX)/include
+LDFLAGS := $(LDFLAGS) -L$(KSS_INSTALL_PREFIX)/lib
+LDPATHEXPR := $(LDPATHEXPR):$(KSS_INSTALL_PREFIX)/lib
 
 CXXFLAGS := $(CXXFLAGS) $(CFLAGS)
 LDFLAGS := $(LDFLAGS) -L$(LIBDIR)
