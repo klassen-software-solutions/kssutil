@@ -15,7 +15,6 @@
 #include <functional>
 #include <limits>
 
-#include "_contract.hpp"
 #include "convert.hpp"
 #include "stringutil.hpp"
 #include "timeutil.hpp"
@@ -24,7 +23,7 @@ using namespace std;
 using namespace std::chrono;
 using namespace kss::util::strings;
 using kss::util::time::checkedDurationCast;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 // MARK: Simple type overrides

@@ -42,21 +42,20 @@ else
 	CFLAGS := $(CFLAGS) $(OPTIMIZED_FLAGS)
 endif
 
+ifneq ("$(wildcard /opt/kss)","")
+    CFLAGS := $(CFLAGS) -I/opt/kss/include
+    LDFLAGS := $(LDFLAGS) -L/opt/kss/lib
+    LDPATHEXPR := $(LDPATHEXPR):/opt/kss/lib
+endif
+
 CXXFLAGS := $(CXXFLAGS) $(CFLAGS)
 LDFLAGS := $(LDFLAGS) -L$(LIBDIR)
-ifneq ("$(wildcard $(PREREQSDIR)/lib)","")
-    LDFLAGS := $(LDFLAGS) -L$(PREREQSDIR)/lib
-endif
 
 -include $(PROJECTDIR)/config.local
 -include $(PROJECTDIR)/config.defs
 
 CFLAGS := $(CFLAGS) -I$(BUILDDIR)/include
 CXXFLAGS := $(CXXFLAGS) -I$(BUILDDIR)/include -std=c++14 -Wno-unknown-pragmas
-ifneq ("$(wildcard $(PREREQSDIR)/include)","")
-    CFLAGS := $(CFLAGS) -I$(PREREQSDIR)/include
-    CXXFLAGS := $(CXXFLAGS) -I$(PREREQSDIR)/include
-endif
 
 .PHONY: build library install check clean cleanall directory-checks hello prep docs help prereqs
 

@@ -11,9 +11,12 @@
 #define ksstest_ksstest_hpp
 
 #include <chrono>
+#include <cmath>
+#include <cstdlib>
 #include <exception>
 #include <functional>
 #include <initializer_list>
+#include <limits>
 #include <memory>
 #include <sstream>
 #include <string>
@@ -164,6 +167,54 @@ namespace kss { namespace test {
     }
 
     /*!
+     Returns true if the lambda returns a value that is within tolerance of a.
+     example:
+     @code
+     KSS_ASSERT(isCloseTo(23.001, 0.0001, []{ return 23.0; }));
+     @endcode
+     */
+    template <class T>
+    bool isCloseTo(const T& a, const T& tolerance, const std::function<T()>& fn) {
+        const auto res = fn();
+        bool ret = (std::abs(res - a) <= tolerance);
+        if (!ret) {
+            std::ostringstream strm;
+            strm << "expected close to (" << a << "), actual was (" << res << ")";
+            _private::setFailureDetails(strm.str());
+        }
+        return ret;
+    }
+
+    template <class T>
+    inline bool isCloseTo(const T& a, const std::function<T()>& fn) {
+        return isCloseTo<T>(a, std::numeric_limits<T>::epsilon(), fn);
+    }
+
+    /*!
+     Returns true if the lambda returns a value that is not within tolerance of a.
+     example:
+     @code
+     KSS_ASSERT(isNotCloseTo(23.001, 0.0001, []{ return 23.0; }));
+     @endcode
+     */
+    template <class T>
+    bool isNotCloseTo(const T& a, const T& tolerance, const std::function<T()>& fn) {
+        const auto res = fn();
+        bool ret = (std::abs(res - a) > tolerance);
+        if (!ret) {
+            std::ostringstream strm;
+            strm << "expected not close to (" << a << "), actual was (" << res << ")";
+            _private::setFailureDetails(strm.str());
+        }
+        return ret;
+    }
+
+    template <class T>
+    inline bool isNotCloseTo(const T& a, const std::function<T()>& fn) {
+        return isNotCloseTo<T>(a, std::numeric_limits<T>::epsilon(), fn);
+    }
+
+    /*!
      Returns true if the lambda throws an exception of the given type. Note that if
      it throws an exception not descended from std::exception, that exception will
      be passed up the stack.
@@ -236,6 +287,9 @@ namespace kss { namespace test {
     /*!
      Returns true if the lambda completes successfuly within the given duration. Note
      that Duration must be a valid std::duration.
+
+     If it fails to return within 4x the given duration, then it gives up and terminates the
+     process rather than waiting forever.
 
      example:
      @code

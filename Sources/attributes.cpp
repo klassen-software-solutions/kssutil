@@ -7,12 +7,13 @@
 //  Licensing follows the MIT License.
 //
 
-#include "_contract.hpp"
+#include <kss/contract/all.h>
+
 #include "attributes.hpp"
 
 using namespace std;
 using namespace kss::util;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 void Attributes::setAttribute(const string &key, const string &value) {

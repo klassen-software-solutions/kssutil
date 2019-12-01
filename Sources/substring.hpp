@@ -18,8 +18,9 @@
 #include <stdexcept>
 #include <string>
 
+#include <kss/contract/all.h>
+
 #include "add_rel_ops.hpp"
-#include "utility.hpp"
 
 namespace kss { namespace util { namespace strings {
 
@@ -65,14 +66,12 @@ namespace kss { namespace util { namespace strings {
             _i = (i >= len ? std::basic_string<Char, Traits, Alloc>::npos : i);
             _n = std::min(n, len - _i);
 
-            // postconditions
             constexpr auto npos = std::basic_string<Char, Traits, Alloc>::npos;
-            if (!(_i == i || i == npos)
-                || !(_n <= n)
-                || !(_cstr == nullptr))
-            {
-                _KSSUTIL_POSTCONDITIONS_FAILED
-            }
+            kss::contract::postconditions({
+                KSS_EXPR(_i == i || i == npos),
+                KSS_EXPR(_n <= n),
+                KSS_EXPR(_cstr == nullptr)
+            });
         }
 
         /*!
@@ -90,13 +89,11 @@ namespace kss { namespace util { namespace strings {
                 _n = str2.length();
             }
 
-            // postconditions
-            if (!(_i >= i)
-                || !(_n == str2.length() || _n == 0)
-                || !(_cstr == nullptr))
-            {
-                _KSSUTIL_POSTCONDITIONS_FAILED
-            }
+            kss::contract::postconditions({
+                KSS_EXPR(_i >= i),
+                KSS_EXPR(_n == str2.length() || _n == 0),
+                KSS_EXPR(_cstr == nullptr)
+            });
         }
 
         /*!
@@ -243,17 +240,15 @@ namespace kss { namespace util { namespace strings {
                 _cstr = nullptr;
             }
 
-            // postconditions
-            if (!(_cstr == nullptr)) {
-                _KSSUTIL_POSTCONDITIONS_FAILED
-            }
+            kss::contract::postconditions({
+                KSS_EXPR(_cstr == nullptr)
+            });
         }
 
         SubString& assign(const const_pointer ptr, size_type new_n) {
-            // preconditions
-            if (!(ptr != nullptr)) {
-                _KSSUTIL_POSTCONDITIONS_FAILED
-            }
+            kss::contract::preconditions({
+                KSS_EXPR(_cstr == nullptr)
+            });
 
             if (_i >= _str.length()) {
                 throw std::out_of_range("Substring is out of range of the original.");

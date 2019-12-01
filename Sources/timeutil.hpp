@@ -15,7 +15,6 @@
 #ifndef kssutil_timeutil_hpp
 #define kssutil_timeutil_hpp
 
-#include <cassert>
 #include <chrono>
 #include <cmath>
 #include <cstring>
@@ -26,6 +25,8 @@
 #include <stdexcept>
 #include <string>
 #include <type_traits>
+
+#include <kss/contract/all.h>
 
 namespace kss { namespace util { namespace time {
 
@@ -259,7 +260,9 @@ namespace kss { namespace util { namespace time {
         if (subsecs.count() > 0) {
             typename Duration::period p;
             const auto subSecsAsSeconds = (long double)subsecs.count() * p.num / p.den;
-            assert(subSecsAsSeconds <= 1);      // should be a fraction of a second
+            kss::contract::conditions({
+                KSS_EXPR(subSecsAsSeconds <= 1) // should be a fraction of a second
+            });
             const auto subSecsRoundedToNs = std::round(subSecsAsSeconds * 1000000000);
             const auto rep = std::chrono::nanoseconds::rep(subSecsRoundedToNs);
             ns = std::chrono::nanoseconds(rep);

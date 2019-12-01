@@ -1,0 +1,7 @@
+[
+    {"package": "https://github.com/klassen-software-solutions/ksscontract.git"},
+    {
+        "command": "sudo apt install uuid-dev",
+        "arch": ["Linux-x86_64"]
+    }
+]

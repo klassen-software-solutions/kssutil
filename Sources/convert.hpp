@@ -13,11 +13,12 @@
 #include <cerrno>
 #include <chrono>
 #include <iostream>
-#include <stdexcept>
 #include <sstream>
 #include <string>
 #include <system_error>
 #include <typeinfo>
+
+#include <kss/contract/all.h>
 
 #include "rtti.hpp"
 
@@ -35,9 +36,9 @@ namespace kss { namespace util { namespace strings {
      */
     template <class T>
     T convert(const std::string& s, const T& = T()) {
-        if (s.empty()) {
-            throw std::invalid_argument("s cannot be empty");
-        }
+        kss::contract::parameters({
+            KSS_EXPR(!s.empty())
+        });
 
         std::istringstream strm(s);
         T t;

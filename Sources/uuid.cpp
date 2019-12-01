@@ -10,13 +10,13 @@
 // 	than to recognize that others are allowed to do the same.
 //
 
+#include <kss/contract/all.h>
 
-#include "_contract.hpp"
 #include "uuid.hpp"
 
 using namespace std;
 using namespace kss::util;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 // MARK: Compatibility Items

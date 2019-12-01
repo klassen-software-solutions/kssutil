@@ -7,14 +7,14 @@
 //  Licensing follows the MIT License.
 //
 
-#include "_contract.hpp"
-#include "utility.hpp"
+#include <kss/contract/all.h>
+
 #include "tokenizer.hpp"
 
 using namespace std;
 using namespace kss::util::strings;
 
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 Tokenizer::Tokenizer(const string& s,

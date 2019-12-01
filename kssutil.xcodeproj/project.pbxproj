@@ -18,8 +18,6 @@
 		AA4D19A221F2716E002A7FBB /* tokenizer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A021F2716E002A7FBB /* tokenizer.hpp */; };
 		AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19A321F2729B002A7FBB /* iterator.hpp */; };
 		AA4D19A621F2775B002A7FBB /* iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19A521F2775B002A7FBB /* iterator.cpp */; };
-		AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19AB21F28283002A7FBB /* _contract.cpp */; };
-		AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19AC21F28283002A7FBB /* _contract.hpp */; };
 		AA4D19B021F28561002A7FBB /* tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19AF21F28561002A7FBB /* tokenizer.cpp */; };
 		AA4D19B321F2944B002A7FBB /* suppress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B121F2944B002A7FBB /* suppress.cpp */; };
 		AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19B521F2CFD1002A7FBB /* raii.hpp */; };
@@ -81,12 +79,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		AACCD4B921F19CF000C270C7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -102,8 +100,6 @@
 		AA4D19A021F2716E002A7FBB /* tokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tokenizer.hpp; sourceTree = "<group>"; };
 		AA4D19A321F2729B002A7FBB /* iterator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iterator.hpp; sourceTree = "<group>"; };
 		AA4D19A521F2775B002A7FBB /* iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iterator.cpp; sourceTree = "<group>"; };
-		AA4D19AB21F28283002A7FBB /* _contract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _contract.cpp; sourceTree = "<group>"; };
-		AA4D19AC21F28283002A7FBB /* _contract.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = _contract.hpp; sourceTree = "<group>"; };
 		AA4D19AF21F28561002A7FBB /* tokenizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tokenizer.cpp; sourceTree = "<group>"; };
 		AA4D19B121F2944B002A7FBB /* suppress.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = suppress.cpp; sourceTree = "<group>"; };
 		AA4D19B221F2944B002A7FBB /* suppress.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = suppress.hpp; sourceTree = "<group>"; };
@@ -113,6 +109,10 @@
 		AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
 		AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stringutil.hpp; sourceTree = "<group>"; };
 		AA4D19C121F2D887002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
+		AA87CE002393103300457FDA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AA87CE012393115500457FDA /* prereqs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = prereqs.json; sourceTree = "<group>"; };
+		AA87CE0223933EAD00457FDA /* config.local */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.local; sourceTree = "<group>"; };
+		AA87CE03239353E400457FDA /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		AABE9073224F004700C355B8 /* convert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convert.hpp; sourceTree = "<group>"; };
 		AABE9074224F004700C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
 		AABE9077224F01EA00C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 		AACCD4CC21F19D6800C270C7 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
 		AACCD4CE21F19F4700C270C7 /* substring.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = substring.hpp; sourceTree = "<group>"; };
 		AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = add_rel_ops.hpp; sourceTree = "<group>"; };
-		AACCD4D221F1A07500C270C7 /* utility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utility.hpp; sourceTree = "<group>"; };
 		AACCD4D321F1A13B00C270C7 /* add_rel_ops.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = add_rel_ops.cpp; sourceTree = "<group>"; };
 		AACCD4D521F1A1E400C270C7 /* substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = substring.cpp; sourceTree = "<group>"; };
 		AAF21798224C7441001B85B0 /* rtti.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rtti.hpp; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				AACCD4A621F199B300C270C7 /* TopLevel */,
+				AA87CE03239353E400457FDA /* .github */,
 				AACCD4AE21F19B3000C270C7 /* BuildSystem */,
 				AACCD4AD21F19B1900C270C7 /* Sources */,
 				AACCD4C621F19D2E00C270C7 /* Tests */,
@@ -207,10 +207,13 @@
 		AACCD4A621F199B300C270C7 /* TopLevel */ = {
 			isa = PBXGroup;
 			children = (
+				AA87CE002393103300457FDA /* .gitignore */,
+				AA87CE0223933EAD00457FDA /* config.local */,
 				AACCD4A721F199C600C270C7 /* configure */,
 				AACCD4A921F199C600C270C7 /* Doxyfile */,
 				AACCD4AA21F199C600C270C7 /* LICENSE */,
 				AACCD4AB21F199C600C270C7 /* Makefile */,
+				AA87CE012393115500457FDA /* prereqs.json */,
 				AACCD4A821F199C600C270C7 /* README.md */,
 			);
 			name = TopLevel;
@@ -219,8 +222,6 @@
 		AACCD4AD21F19B1900C270C7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AA4D19AB21F28283002A7FBB /* _contract.cpp */,
-				AA4D19AC21F28283002A7FBB /* _contract.hpp */,
 				AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */,
 				AABE907F224F1F2400C355B8 /* algorithm.hpp */,
 				AACAA6BC225067DD0005F45E /* argumentvector.cpp */,
@@ -251,7 +252,6 @@
 				AAF217A5224DBAF1001B85B0 /* timeutil.hpp */,
 				AA4D199F21F2716D002A7FBB /* tokenizer.cpp */,
 				AA4D19A021F2716E002A7FBB /* tokenizer.hpp */,
-				AACCD4D221F1A07500C270C7 /* utility.hpp */,
 				AAF2179E224C7AF2001B85B0 /* uuid.cpp */,
 				AAF2179F224C7AF2001B85B0 /* uuid.hpp */,
 				AACCD4B421F19C7B00C270C7 /* version.cpp */,
@@ -315,7 +315,6 @@
 				AA4D19B621F2CFD1002A7FBB /* raii.hpp in Headers */,
 				AACAA6BF225067DD0005F45E /* argumentvector.hpp in Headers */,
 				AA4D19A421F2729B002A7FBB /* iterator.hpp in Headers */,
-				AA4D19AE21F28283002A7FBB /* _contract.hpp in Headers */,
 				AABE907A224F095900C355B8 /* containerutil.hpp in Headers */,
 				AACAA6B3224FE5740005F45E /* attributes.hpp in Headers */,
 				AABE9084224F212000C355B8 /* memory.hpp in Headers */,
@@ -377,7 +376,7 @@
 		AACCD49721F198CC00C270C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Klassen Software Solutions";
 				TargetAttributes = {
 					AACCD49E21F198CC00C270C7 = {
@@ -444,7 +443,6 @@
 				AA4D19A121F2716E002A7FBB /* tokenizer.cpp in Sources */,
 				AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */,
 				AACAA6B2224FE5740005F45E /* attributes.cpp in Sources */,
-				AA4D19AD21F28283002A7FBB /* _contract.cpp in Sources */,
 				AABE9076224F004800C355B8 /* convert.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,10 +538,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /opt/kss/include;
+				LIBRARY_SEARCH_PATHS = /opt/kss/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lksscontract";
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
@@ -593,9 +594,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /opt/kss/include;
+				LIBRARY_SEARCH_PATHS = /opt/kss/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lksscontract";
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
@@ -631,10 +635,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/.build/Darwin-x86_64/include";
+				HEADER_SEARCH_PATHS = (
+					/opt/kss/include,
+					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -643,10 +651,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/.build/Darwin-x86_64/include";
+				HEADER_SEARCH_PATHS = (
+					/opt/kss/include,
+					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
