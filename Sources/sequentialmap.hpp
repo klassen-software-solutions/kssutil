@@ -16,7 +16,6 @@
 #define kssutil_sequentialmap_hpp
 
 #include <algorithm>
-#include <cassert>
 #include <functional>
 #include <iterator>
 #include <limits>
@@ -25,6 +24,9 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
+
+#include <kss/contract/all.h>
+
 
 namespace kss { namespace util { namespace containers {
 
@@ -73,9 +75,10 @@ namespace kss { namespace util { namespace containers {
                                const allocator_type& talloc = allocator_type(),
                                const m_allocator_type& malloc = m_allocator_type())
         {
-            // postconditions
-            assert(_vec.empty());
-            assert(_map.empty());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.empty()),
+                KSS_EXPR(_map.empty())
+            });
         }
 
         template <class InputIterator>
@@ -85,8 +88,9 @@ namespace kss { namespace util { namespace containers {
         {
             insert(first, last);
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
         }
 
         SequentialMap(const SequentialMap&) = default;
@@ -120,8 +124,9 @@ namespace kss { namespace util { namespace containers {
 
         // MARK: Element access
         mapped_type& operator[](const key_type& k) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             iterator it = find(k);
             if (it == end()) {
@@ -129,44 +134,50 @@ namespace kss { namespace util { namespace containers {
                 it = p.first;
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return it->second;
         }
 
         mapped_type& at(const key_type& k) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             iterator it = find(k);
             if (it == end()) {
                 throw std::out_of_range("the given key is not found in the map");
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return it->second;
         }
 
         const mapped_type& at(const key_type& k) const {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             const_iterator it = find(k);
             if (it == end()) {
                 throw std::out_of_range("the given key is not found in the map");
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return it->second;
         }
 
 
         // MARK: Modifiers
         std::pair<iterator, bool> insert(const value_type& val) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             bool wasInserted = false;
             iterator it = find(val.first);
@@ -176,8 +187,9 @@ namespace kss { namespace util { namespace containers {
                 wasInserted = true;
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return std::make_pair(it, wasInserted);
         }
 
@@ -187,15 +199,17 @@ namespace kss { namespace util { namespace containers {
 
         template <class InputIterator>
         void insert(InputIterator first, InputIterator last) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             for (InputIterator it = first; it != last; ++it) {
                 insert(*it);
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
         }
 
         // Note that invalid_argument is thrown if first and last are not in
@@ -206,8 +220,9 @@ namespace kss { namespace util { namespace containers {
         }
 
         size_type erase(const key_type& k) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             size_type numErased { 0 };
             iterator it = find(k);
@@ -216,8 +231,9 @@ namespace kss { namespace util { namespace containers {
                 ++numErased;
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return numErased;
         }
 
@@ -225,10 +241,11 @@ namespace kss { namespace util { namespace containers {
         // the map or are not in the correct order. This differs from
         // map::erase where the behaviour is undefined.
         void erase(iterator first, iterator last) {
-            // preconditions
-            assert(first >= begin());
-            assert(last >= first);
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(first >= begin()),
+                KSS_EXPR(last >= first),
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             difference_type i = first - begin();
             difference_type n = last - first;
@@ -248,26 +265,29 @@ namespace kss { namespace util { namespace containers {
                 }
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
         }
 
         void swap(SequentialMap& x) {
             _vec.swap(x._vec);
             _map.swap(x._map);
 
-            // postconditions
-            assert(_vec.size() == _map.size());
-            assert(x._vec.size() == x._map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size()),
+                KSS_EXPR(x._vec.size() == x._map.size())
+            });
         }
 
         void clear() noexcept {
             _vec.clear();
             _map.clear();
 
-            // postconditions
-            assert(_vec.empty());
-            assert(_map.empty());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.empty()),
+                KSS_EXPR(_map.empty())
+            });
         }
 
 
@@ -280,8 +300,9 @@ namespace kss { namespace util { namespace containers {
 
         // MARK: Operations
         iterator find(const key_type& k) {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             iterator retIt = end();
             typename std::map<Key, size_t, Compare, MAlloc>::iterator it = _map.find(k);
@@ -296,14 +317,16 @@ namespace kss { namespace util { namespace containers {
                 retIt += difference_type(remain);
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return retIt;
         }
 
         const_iterator find(const key_type& k) const {
-            // preconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
 
             const_iterator retIt = end();
             typename std::map<Key, size_t, Compare, MAlloc>::const_iterator it = _map.find(k);
@@ -318,13 +341,16 @@ namespace kss { namespace util { namespace containers {
                 retIt += difference_type(remain);
             }
 
-            // postconditions
-            assert(_vec.size() == _map.size());
+            kss::contract::postconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return retIt;
         }
 
         size_type count(const key_type& k) const {
-            assert(_vec.size() == _map.size());
+            kss::contract::preconditions({
+                KSS_EXPR(_vec.size() == _map.size())
+            });
             return (_map.find(k) == _map.end() ? 0 : 1);
         }
 

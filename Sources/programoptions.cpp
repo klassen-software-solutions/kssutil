@@ -21,12 +21,11 @@
 
 #include <getopt.h>
 
-#include "_contract.hpp"
 #include "programoptions.hpp"
 
 using namespace std;
 using namespace kss::util::po;
-namespace contract = kss::util::_private::contract;
+namespace contract = kss::contract;
 
 
 ////
