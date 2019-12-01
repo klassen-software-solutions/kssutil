@@ -10,15 +10,30 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
     - uses: actions/checkout@v1
+
+    - name: Cache Prerequisites
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: /tmp/opt/kss
+        key: ${{ runner.os }}-prereqs-${{ hashFiles('**/prereqs.json') }}
+
     - name: Prepare Prerequisites
+      if: steps.cache.outputs.cache-hit != 'true'
+      env:
+        KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
-        sudo mkdir -p /opt/kss
-        sudo chmod 777 /opt/kss
         make prereqs
+
     - name: Build
+      env:
+        KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         ./configure
         make -j 4
+
     - name: Run tests
+      env:
+        KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         make -j 4 check
