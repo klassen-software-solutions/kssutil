@@ -37,3 +37,10 @@ jobs:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         make -j 4 check
+
+    - name: Static Analysis
+      if: runner.os == 'macOS'
+      branches:
+        - 'feature/**'
+      run: |
+        make analyze
