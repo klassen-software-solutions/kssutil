@@ -42,7 +42,7 @@ else
 	CFLAGS := $(CFLAGS) $(OPTIMIZED_FLAGS)
 endif
 
-KSS_INSTALL_PREFIX ?= /opt/kss
+KSS_INSTALL_PREFIX ?= /opt/$(PREFIX)
 CFLAGS := $(CFLAGS) -I$(KSS_INSTALL_PREFIX)/include
 LDFLAGS := $(LDFLAGS) -L$(KSS_INSTALL_PREFIX)/lib
 LDPATHEXPR := $(LDPATHEXPR):$(KSS_INSTALL_PREFIX)/lib
@@ -161,7 +161,8 @@ $(HEADERDIR):
 	echo build $(HEADERDIR)
 	-mkdir -p $(BUILDDIR)/include/$(PREFIX)
 	-rm $(BUILDDIR)/include/$(PREFIX)/$(PACKAGEBASENAME)
-	-ln -s `pwd`/Sources $(BUILDDIR)/include/$(PREFIX)/$(PACKAGEBASENAME)
+	-ln -s $(PROJECTDIR)/Sources $(BUILDDIR)/include/$(PREFIX)/$(PACKAGEBASENAME)
+	echo "done HEADERDIR"
 
 
 # Build and run the unit tests.
@@ -180,7 +181,7 @@ ifneq ($(wildcard $(EXEPATH)),)
 endif
 	$(LDPATHEXPR) $(TESTPATH)
 
-analyze: $(SRCS) $(TESTSRCS)
+analyze:
 	$(BUILDSYSTEMDIR)/xcode_analyzer.py
 
 $(TESTPATH): $(LIBPATH) $(TESTDIR) $(TESTOBJS)
