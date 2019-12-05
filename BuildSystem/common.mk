@@ -56,7 +56,8 @@ LDFLAGS := $(LDFLAGS) -L$(LIBDIR)
 CFLAGS := $(CFLAGS) -I$(BUILDDIR)/include
 CXXFLAGS := $(CXXFLAGS) -I$(BUILDDIR)/include -std=c++14 -Wno-unknown-pragmas
 
-.PHONY: build library install check clean cleanall directory-checks hello prep docs help prereqs
+.PHONY: build library install check analyze clean cleanall directory-checks hello
+.PHONE: prep docs help prereqs
 
 LIBNAME := $(PREFIX)$(PACKAGEBASENAME)
 LIBFILE := lib$(LIBNAME)$(SOEXT)
@@ -178,6 +179,9 @@ ifneq ($(wildcard $(EXEPATH)),)
 	$(LDPATHEXPR) $(EXEPATH) --version
 endif
 	$(LDPATHEXPR) $(TESTPATH)
+
+analyze: $(SRCS) $(TESTSRCS)
+	$(BUILDSYSTEMDIR)/xcode_analyzer.py
 
 $(TESTPATH): $(LIBPATH) $(TESTDIR) $(TESTOBJS)
 	$(CXX) $(LDFLAGS) -L$(BUILDDIR) $(TESTOBJS) -l $(LIBNAME) $(LIBS) -o $@
