@@ -162,7 +162,6 @@ $(HEADERDIR):
 	-mkdir -p $(BUILDDIR)/include/$(PREFIX)
 	-rm $(BUILDDIR)/include/$(PREFIX)/$(PACKAGEBASENAME)
 	-ln -s $(PROJECTDIR)/Sources $(BUILDDIR)/include/$(PREFIX)/$(PACKAGEBASENAME)
-	echo "done HEADERDIR"
 
 
 # Build and run the unit tests.

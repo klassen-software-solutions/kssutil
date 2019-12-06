@@ -60,10 +60,11 @@ namespace {
 
 	// Create a duplicate of argv that is not const.
 	vector<char*> duplicateArgV(int argc, const char* const* argv) {
-        contract::preconditions({
-            KSS_EXPR(argc > 0),
-            KSS_EXPR(argv != nullptr)
-        });
+        if (!argc || !argv) {
+            // We need this "extra" check so the analyzer does not complain
+            // about the possibility of argv[i] being invalid.
+            throw runtime_error("This should have been checked already.");
+        }
 
 		vector<char*> ret;
 		ret.reserve((size_t)argc);
@@ -303,6 +304,11 @@ void ProgramOptions::parse(int argc, const char *const *argv, bool ignoreUnknown
         KSS_EXPR(argc > 0),
         KSS_EXPR(argv != nullptr)
     });
+    if (!argc || !argv) {
+        // We need this "extra" check since the analyzer does not know that
+        // contract::parameters has handled this case.
+        throw runtime_error("This should have been checked already.");
+    }
 
     // Setup for the getopt_long_only calls.
     initWithDefaultValues(_impl->poptions, _impl->results);
