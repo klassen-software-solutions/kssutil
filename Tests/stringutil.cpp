@@ -20,7 +20,10 @@ using namespace kss::test;
 static TestSuite ts("strings::stringutil", {
     make_pair("basic tests", [] {
         // Test the formatting.
-        KSS_ASSERT(format("%s is test number %.1f", "This", 5.F) == "This is test number 5.0");
+        KSS_ASSERT(isEqualTo<string>("This is test number 5.0", [] {
+            const auto s = format("%s is test number %.1f", "This", 5.F);
+            return format("%s is test number %.1f", "This", 5.F);
+        }));
 
         // Test the trimming.
         string s = "  This is a test of whitespace trimming.   ";

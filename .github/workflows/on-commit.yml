@@ -39,8 +39,8 @@ jobs:
         make -j 4 check
 
     - name: Static Analysis
-      if: runner.os == 'macOS'
-      branches:
-        - 'feature/**'
+      if: runner.os == 'macOS' && startsWith(github.ref, 'refs/heads/feature/')
+      env:
+        KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         make analyze
