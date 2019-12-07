@@ -8,8 +8,9 @@
 //
 
 #include <memory>
+
+#include <kss/test/all.h>
 #include <kss/util/memory.hpp>
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util::memory;

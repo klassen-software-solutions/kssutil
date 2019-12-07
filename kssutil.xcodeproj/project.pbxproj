@@ -52,7 +52,6 @@
 		AACCD4B621F19C7B00C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4B421F19C7B00C270C7 /* version.cpp */; };
 		AACCD4C521F19D0800C270C7 /* libkssutil.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACCD49F21F198CC00C270C7 /* libkssutil.dylib */; };
 		AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4C721F19D5000C270C7 /* main.cpp */; };
-		AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4C821F19D5000C270C7 /* ksstest.cpp */; };
 		AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AACCD4CC21F19D6800C270C7 /* version.cpp */; };
 		AACCD4CF21F19F4700C270C7 /* substring.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4CE21F19F4700C270C7 /* substring.hpp */; };
 		AACCD4D121F19FE200C270C7 /* add_rel_ops.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */; };
@@ -120,6 +119,7 @@
 		AA8BDABA23944DA80027EE18 /* nicenumber.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = nicenumber.hpp; sourceTree = "<group>"; };
 		AA8BDABD239454100027EE18 /* nicenumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nicenumber.cpp; sourceTree = "<group>"; };
 		AA8BDABF23945B0F0027EE18 /* install_libuuid.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install_libuuid.sh; sourceTree = "<group>"; };
+		AA8C551B23A7E43C00F9D284 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		AABE9073224F004700C355B8 /* convert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convert.hpp; sourceTree = "<group>"; };
 		AABE9074224F004700C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
 		AABE9077224F01EA00C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 		AACCD49F21F198CC00C270C7 /* libkssutil.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkssutil.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4A721F199C600C270C7 /* configure */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		AACCD4A821F199C600C270C7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AACCD4A921F199C600C270C7 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 		AACCD4AA21F199C600C270C7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AACCD4AB21F199C600C270C7 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		AACCD4AE21F19B3000C270C7 /* BuildSystem */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BuildSystem; sourceTree = "<group>"; };
@@ -152,8 +151,6 @@
 		AACCD4B421F19C7B00C270C7 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
 		AACCD4BB21F19CF000C270C7 /* unittest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = unittest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACCD4C721F19D5000C270C7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		AACCD4C821F19D5000C270C7 /* ksstest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ksstest.cpp; sourceTree = "<group>"; };
-		AACCD4C921F19D5000C270C7 /* ksstest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ksstest.hpp; sourceTree = "<group>"; };
 		AACCD4CC21F19D6800C270C7 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
 		AACCD4CE21F19F4700C270C7 /* substring.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = substring.hpp; sourceTree = "<group>"; };
 		AACCD4D021F19FE200C270C7 /* add_rel_ops.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = add_rel_ops.hpp; sourceTree = "<group>"; };
@@ -217,12 +214,12 @@
 				AA87CE002393103300457FDA /* .gitignore */,
 				AA87CE0223933EAD00457FDA /* config.local */,
 				AACCD4A721F199C600C270C7 /* configure */,
-				AACCD4A921F199C600C270C7 /* Doxyfile */,
+				AA8BDABF23945B0F0027EE18 /* install_libuuid.sh */,
 				AACCD4AA21F199C600C270C7 /* LICENSE */,
+				AA8C551B23A7E43C00F9D284 /* logo.png */,
 				AACCD4AB21F199C600C270C7 /* Makefile */,
 				AA87CE012393115500457FDA /* prereqs.json */,
 				AACCD4A821F199C600C270C7 /* README.md */,
-				AA8BDABF23945B0F0027EE18 /* install_libuuid.sh */,
 			);
 			name = TopLevel;
 			sourceTree = "<group>";
@@ -289,8 +286,6 @@
 				AABE9077224F01EA00C355B8 /* convert.cpp */,
 				AA228A00224EE59A00E6AB8E /* error.cpp */,
 				AA4D19A521F2775B002A7FBB /* iterator.cpp */,
-				AACCD4C821F19D5000C270C7 /* ksstest.cpp */,
-				AACCD4C921F19D5000C270C7 /* ksstest.hpp */,
 				AACCD4C721F19D5000C270C7 /* main.cpp */,
 				AABE9085224F21C700C355B8 /* memory.cpp */,
 				AA8BDABD239454100027EE18 /* nicenumber.cpp */,
@@ -388,7 +383,7 @@
 		AACCD49721F198CC00C270C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Klassen Software Solutions";
 				TargetAttributes = {
 					AACCD49E21F198CC00C270C7 = {
@@ -481,7 +476,6 @@
 				AACAA6C1225108A70005F45E /* argumentvector.cpp in Sources */,
 				AACAA6BB225056860005F45E /* programoptions.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,
-				AACCD4CB21F19D5000C270C7 /* ksstest.cpp in Sources */,
 				AABE9088224F231300C355B8 /* circular_array.cpp in Sources */,
 				AABE9086224F21C700C355B8 /* memory.cpp in Sources */,
 				AABE9078224F01EB00C355B8 /* convert.cpp in Sources */,
@@ -656,6 +650,10 @@
 					/opt/kss/include,
 					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
 				);
+				OTHER_LDFLAGS = (
+					"-lksscontract",
+					"-lksstest",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -671,6 +669,10 @@
 				HEADER_SEARCH_PATHS = (
 					/opt/kss/include,
 					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
+				);
+				OTHER_LDFLAGS = (
+					"-lksscontract",
+					"-lksstest",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

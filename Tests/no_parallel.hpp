@@ -10,7 +10,8 @@
 #define no_parallel_h
 
 #include <string>
-#include "ksstest.hpp"
+
+#include <kss/test/all.h>
 
 using namespace std;
 using namespace kss::test;

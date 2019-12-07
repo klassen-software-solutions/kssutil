@@ -1,4 +1,4 @@
-name: On Commit
+name: On Push
 
 on: [push]
 

@@ -9,9 +9,9 @@
 
 #include <iostream>
 
+#include <kss/test/all.h>
 #include <kss/util/tokenizer.hpp>
 
-#include "ksstest.hpp"
 #include "no_parallel.hpp"
 #include "suppress.hpp"
 

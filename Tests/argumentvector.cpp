@@ -11,9 +11,8 @@
 #include <string>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/argumentvector.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util::po;
