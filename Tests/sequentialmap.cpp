@@ -12,9 +12,8 @@
 #include <string>
 #include <utility>
 
+#include <kss/test/all.h>
 #include <kss/util/sequentialmap.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

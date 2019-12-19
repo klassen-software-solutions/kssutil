@@ -14,10 +14,9 @@
 #include <iostream>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/argumentvector.hpp>
 #include <kss/util/programoptions.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util::po;

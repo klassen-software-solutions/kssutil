@@ -11,10 +11,9 @@
 #include <stdexcept>
 #include <system_error>
 
+#include <kss/test/all.h>
 #include <kss/util/attributes.hpp>
 #include <kss/util/timeutil.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

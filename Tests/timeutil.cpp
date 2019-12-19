@@ -1,5 +1,5 @@
 //
-//  timeutil_cpp.cpp
+//  timeutil.cpp
 //  kssutil
 //
 //  Created by Steven W. Klassen on 2013-01-04.
@@ -20,10 +20,8 @@
 #include <string>
 #include <thread>
 
+#include <kss/test/all.h>
 #include <kss/util/timeutil.hpp>
-
-#include "ksstest.hpp"
-
 
 using namespace std;
 using namespace kss::util;
@@ -226,13 +224,6 @@ static TestSuite ts("time::timeutil", {
         KSS_ASSERT(toLocalizedString(t, locale("en_CA"), "GMT") == "Thu 13 Apr 08:15:05 1972");
         KSS_ASSERT(toLocalizedString(t, locale("en_CA"), "America/Edmonton") == "Thu 13 Apr 01:15:05 1972");
         KSS_ASSERT(toLocalizedString(t, locale("de_DE"), "Europe/Vienna") == "Do 13 Apr 09:15:05 1972");
-        KSS_ASSERT(isTrue([&] {
-            const auto ls = toLocalizedString(t, locale("he_IL"), "Asia/Jerusalem");
-            std::cerr << "!!! ls=" << ls << std::endl;
-            return (ls == "EWT 10:15:05 1972 אפר 13 ה'"
-                    || ls == "MWT 10:15:05 1972 אפר 13 ה'"
-                    || ls == "IST 10:15:05 1972 אפר 13 ה'");
-        }));
 #endif
     }),
 #if !defined(__linux)

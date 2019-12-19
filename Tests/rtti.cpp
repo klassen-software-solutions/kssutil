@@ -12,8 +12,8 @@
 #include <iostream>
 #include <stdexcept>
 
+#include <kss/test/all.h>
 #include <kss/util/rtti.hpp>
-#include "ksstest.hpp"
 
 
 using namespace std;

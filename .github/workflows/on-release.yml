@@ -1,0 +1,27 @@
+name: On Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  docs:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install Doxygen
+      if: github.ref == 'master'
+      run: |
+        brew install doxygen
+
+    - name: Publish Docs
+      if: github.ref == 'master'
+      env:
+        X_URL: ${{ secrets.API_PUBLISHER_URL }}
+        X_USER: ${{ secrets.API_PUBLISHER_USER }}
+        X_PW: ${{ secrets.API_PUBLISHER_PASSWORD }}
+      run: |
+        make docs
+        BuildSystem/publish.py --url "$X_URL" --user "$X_USER" --password "$X_PW" docs

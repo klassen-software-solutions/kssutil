@@ -21,6 +21,8 @@ namespace kss { namespace util { namespace strings {
 
     /*!
      Perform printf style formatting and return the resulting string.
+     @throws std::invalid_argument if the pattern is empty
+     @throws std::system_error if there is a problem with an underlying C call
      */
     std::string format(std::string pattern, ...);
     std::string vformat(const std::string& pattern, va_list ap);

@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Klassen Software Solutions. All rights reserved.
 //
 
+#include <kss/test/all.h>
 #include <kss/util/stringutil.hpp>
 #include <kss/util/uuid.hpp>
-
-#include "ksstest.hpp"
-
 
 using namespace std;
 using namespace kss::util;

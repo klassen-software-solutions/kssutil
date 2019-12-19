@@ -9,8 +9,8 @@
 //     than to recognize that others are allowed to do the same.
 //
 
+#include <kss/test/all.h>
 #include <kss/util/add_rel_ops.hpp>
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

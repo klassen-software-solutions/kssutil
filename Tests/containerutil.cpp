@@ -16,10 +16,8 @@
 #include <valarray>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/containerutil.hpp>
-
-#include "ksstest.hpp"
-
 
 using namespace std;
 using namespace kss::util;

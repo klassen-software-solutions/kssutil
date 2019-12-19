@@ -14,9 +14,8 @@
 #include <stdexcept>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/error.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

@@ -15,9 +15,8 @@
 #include <sstream>
 #include <string>
 
+#include <kss/test/all.h>
 #include <kss/util/convert.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util::strings;

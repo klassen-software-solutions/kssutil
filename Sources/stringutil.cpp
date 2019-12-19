@@ -18,12 +18,16 @@
 #include <cwctype>
 #include <new>
 #include <system_error>
+#include <vector>
+
+#include <kss/contract/all.h>
 
 #include "raii.hpp"
 #include "stringutil.hpp"
 
 using namespace std;
 using namespace kss::util;
+namespace contract = kss::contract;
 
 
 string strings::format(string pattern, ...) {
@@ -34,51 +38,37 @@ string strings::format(string pattern, ...) {
     return s;
 }
 
-namespace {
-    string kss_vformat(const char* pattern, va_list ap) {
-        assert(pattern != nullptr);
-
-        /* We need to make a copy of ap in case we have to call vsnprintf twice. */
-        va_list ap2;
-        va_copy(ap2, ap);
-        char* buffer = NULL;
-        Finally cleanup([&] {
-            va_end(ap2);
-            if (buffer) { free(buffer); }
-        });
-
-        /* First we try a "reasonable" string length. */
-        size_t maxlen = strlen(pattern) + 1024;
-        buffer = static_cast<char*>(malloc(maxlen));
-        if (!buffer) {
-            throw bad_alloc();
-        }
-
-        int requiredlen = vsnprintf(buffer, maxlen, pattern, ap);
-        if (requiredlen < 0) {
-            throw system_error(errno, system_category(), "vsnprintf");
-        }
-
-        /* If our original length guess was not sufficient, then we reallocate it and do the
-         * write a second time.
-         */
-        if ((size_t)requiredlen >= maxlen) {
-            maxlen = (size_t)requiredlen+1;
-            char* tmp = buffer;
-            buffer = static_cast<char*>(realloc(buffer, maxlen));
-            if (!buffer) {
-                free(tmp);
-                throw bad_alloc();
-            }
-            vsnprintf(buffer, maxlen, pattern, ap2);
-        }
-
-        return string(buffer);
-    }
-}
 
 string strings::vformat(const string& pattern, va_list ap) {
-    return kss_vformat(pattern.c_str(), ap);
+    contract::parameters({
+        KSS_EXPR(!pattern.empty())
+    });
+
+    // We need to make a copy of ap in case we have to call vsnprintf twice.
+    va_list ap2;
+    va_copy(ap2, ap);
+    Finally cleanup([&] {
+        va_end(ap2);
+    });
+
+    // First we try a "reasonable" string length.
+    size_t maxlen = pattern.size() + 1024;
+    vector<char> buffer(maxlen);
+
+    int requiredlen = vsnprintf(buffer.data(), maxlen, pattern.c_str(), ap);
+    if (requiredlen < 0) {
+        throw system_error(errno, system_category(), "vsnprintf");
+    }
+
+    // If our original length guess was not sufficient, then we reallocate it and do the
+    // write a second time.
+    if ((size_t)requiredlen >= maxlen) {
+        maxlen = (size_t)requiredlen+1;
+        buffer.resize(maxlen);
+        vsnprintf(buffer.data(), maxlen, pattern.data(), ap2);
+    }
+
+    return string(buffer.data());
 }
 
 
