@@ -23,6 +23,7 @@ jobs:
       env:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
+        python3 -m pip install requests
         make prereqs
 
     - name: Build

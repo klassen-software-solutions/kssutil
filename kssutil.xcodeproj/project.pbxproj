@@ -118,7 +118,6 @@
 		AA8BDAB923944DA80027EE18 /* nicenumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nicenumber.cpp; sourceTree = "<group>"; };
 		AA8BDABA23944DA80027EE18 /* nicenumber.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = nicenumber.hpp; sourceTree = "<group>"; };
 		AA8BDABD239454100027EE18 /* nicenumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nicenumber.cpp; sourceTree = "<group>"; };
-		AA8BDABF23945B0F0027EE18 /* install_libuuid.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install_libuuid.sh; sourceTree = "<group>"; };
 		AA8C551B23A7E43C00F9D284 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		AABE9073224F004700C355B8 /* convert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convert.hpp; sourceTree = "<group>"; };
 		AABE9074224F004700C355B8 /* convert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert.cpp; sourceTree = "<group>"; };
@@ -214,7 +213,6 @@
 				AA87CE002393103300457FDA /* .gitignore */,
 				AA87CE0223933EAD00457FDA /* config.local */,
 				AACCD4A721F199C600C270C7 /* configure */,
-				AA8BDABF23945B0F0027EE18 /* install_libuuid.sh */,
 				AACCD4AA21F199C600C270C7 /* LICENSE */,
 				AA8C551B23A7E43C00F9D284 /* logo.png */,
 				AACCD4AB21F199C600C270C7 /* Makefile */,
