@@ -20,10 +20,8 @@
 #include <string>
 #include <thread>
 
+#include <kss/test/all.h>
 #include <kss/util/timeutil.hpp>
-
-#include "ksstest.hpp"
-
 
 using namespace std;
 using namespace kss::util;

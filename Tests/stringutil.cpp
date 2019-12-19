@@ -7,9 +7,8 @@
 //  Licensing follows the MIT License.
 //
 
+#include <kss/test/all.h>
 #include <kss/util/stringutil.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

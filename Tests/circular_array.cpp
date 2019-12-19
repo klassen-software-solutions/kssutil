@@ -11,9 +11,8 @@
 #include <string>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/circular_array.hpp>
-
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util::containers;

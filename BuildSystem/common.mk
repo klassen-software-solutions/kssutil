@@ -57,7 +57,7 @@ CFLAGS := $(CFLAGS) -I$(BUILDDIR)/include
 CXXFLAGS := $(CXXFLAGS) -I$(BUILDDIR)/include -std=c++14 -Wno-unknown-pragmas
 
 .PHONY: build library install check analyze clean cleanall directory-checks hello
-.PHONE: prep docs help prereqs
+.PHONY: prep docs help prereqs
 
 LIBNAME := $(PREFIX)$(PACKAGEBASENAME)
 LIBFILE := lib$(LIBNAME)$(SOEXT)
@@ -173,6 +173,7 @@ endif
 TESTSRCS := $(filter-out Sources/main.cpp, $(TESTSRCS))
 TESTOBJS := $(patsubst Tests/%.cpp,$(TESTDIR)/%.o,$(TESTSRCS))
 TESTHDRS := $(wildcard Tests/*.h) $(wildcard Tests/*.hpp)
+#TESTLIBS :=  add this to your Makefile if necessary
 
 check: library $(TESTPATH)
 ifneq ($(wildcard $(EXEPATH)),)
@@ -184,7 +185,7 @@ analyze:
 	$(BUILDSYSTEMDIR)/xcode_analyzer.py
 
 $(TESTPATH): $(LIBPATH) $(TESTDIR) $(TESTOBJS)
-	$(CXX) $(LDFLAGS) -L$(BUILDDIR) $(TESTOBJS) -l $(LIBNAME) $(LIBS) -o $@
+	$(CXX) $(LDFLAGS) -L$(BUILDDIR) $(TESTOBJS) -l $(LIBNAME) $(LIBS) $(TESTLIBS) -o $@
 
 $(TESTDIR):
 	-mkdir -p $@
@@ -196,7 +197,11 @@ $(TESTDIR)/%.o: Tests/%.cpp $(TESTHDRS)
 # Build the documentation.
 docs:
 	-rm -rf docs
-	doxygen Doxyfile
+	(cat BuildSystem/Doxyfile ; \
+	 echo "PROJECT_NAME=$(PROJECT_NAME)" ; \
+	 echo "PROJECT_NUMBER=v$(VERSION)" ; \
+	 echo "PROJECT_BRIEF=\"$(PROJECT_TITLE)\"") \
+	| doxygen -
 
 # Perform the install.
 install: $(TARGETDIR)/include/$(PREFIX) $(TARGETDIR)/lib

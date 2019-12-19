@@ -1,7 +1,8 @@
 [
-    {"package": "https://github.com/klassen-software-solutions/ksscontract.git"},
+    {"git": "https://github.com/klassen-software-solutions/ksscontract.git"},
+    {"git": "https://github.com/klassen-software-solutions/ksstest.git"},
     {
-        "command": "./install_libuuid.sh",
+        "tarball": "https://iweb.dl.sourceforge.net/project/libuuid/libuuid-1.0.3.tar.gz",
         "arch": ["Linux-x86_64"]
     }
 ]

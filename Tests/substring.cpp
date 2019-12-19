@@ -7,8 +7,9 @@
 //
 
 #include <iostream>
+
+#include <kss/test/all.h>
 #include <kss/util/substring.hpp>
-#include "ksstest.hpp"
 
 using namespace std;
 using namespace kss::util;

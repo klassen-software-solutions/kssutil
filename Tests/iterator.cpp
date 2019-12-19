@@ -19,9 +19,9 @@
 #include <utility>
 #include <vector>
 
+#include <kss/test/all.h>
 #include <kss/util/iterator.hpp>
 
-#include "ksstest.hpp"
 #include "no_parallel.hpp"
 #include "suppress.hpp"
 
