@@ -73,9 +73,12 @@ ifeq ($(wildcard Tests/.*),)
 	TESTPATH :=
 endif
 
-build: library
+build: library prereqs-licenses.json
 
 library: $(LIBPATH)
+
+prereqs-licenses.json: prereqs.json
+	BuildSystem/license_scanner.py
 
 
 # Use "make help" to give some instructions on how the build system works.
