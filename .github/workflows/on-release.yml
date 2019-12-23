@@ -12,7 +12,6 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Install Doxygen
-      if: github.ref == 'master'
       run: |
         brew install doxygen
 
