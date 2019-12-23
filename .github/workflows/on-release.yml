@@ -17,7 +17,6 @@ jobs:
         brew install doxygen
 
     - name: Publish Docs
-      if: github.ref == 'master'
       env:
         X_URL: ${{ secrets.API_PUBLISHER_URL }}
         X_USER: ${{ secrets.API_PUBLISHER_USER }}
