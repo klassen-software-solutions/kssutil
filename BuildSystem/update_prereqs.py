@@ -15,10 +15,10 @@ from typing import Dict, List
 
 def _read_prereqs_file() -> List:
     try:
-        with open('prereqs.json', 'r') as file:
+        with open('Dependancies/prereqs.json', 'r') as file:
             return json.load(file)
     except IOError:
-        logging.info("Could not open prereqs.json. Assuming no dependancies.")
+        logging.info("Could not open Dependancies/prereqs.json. Assuming no dependancies.")
         return []
 
 def _change_to_prereqs_directory():

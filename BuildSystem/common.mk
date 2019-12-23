@@ -43,8 +43,8 @@ else
 endif
 
 # Only include the license file dependancy if there are prerequisites to examine.
-PREREQS_LICENSE_FILE := prereqs-licenses.json
-ifeq ($(wildcard prereqs.json),)
+PREREQS_LICENSE_FILE := Dependancies/prereqs-licenses.json
+ifeq ($(wildcard Dependancies/prereqs.json),)
 	PREREQS_LICENSE_FILE :=
 endif
 
@@ -83,7 +83,7 @@ build: library $(PREREQS_LICENSE_FILE)
 
 library: $(LIBPATH)
 
-prereqs-licenses.json: prereqs.json
+Dependancies/prereqs-licenses.json: Dependancies/prereqs.json
 	BuildSystem/license_scanner.py
 
 

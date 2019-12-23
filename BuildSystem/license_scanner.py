@@ -17,7 +17,7 @@ from typing import Dict
 
 
 _PREREQS_DIRECTORY = '.prereqs/Darwin-x86_64'
-_PREREQS_LICENSE_FILE = 'prereqs-licenses.json'
+_PREREQS_LICENSE_FILE = 'Dependancies/prereqs-licenses.json'
 _SPDX_LICENSES = 'BuildSystem/spdx-licenses.json'
 
 def _get_run(command: str, directory: str = None):
