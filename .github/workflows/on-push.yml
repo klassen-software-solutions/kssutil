@@ -12,6 +12,9 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Cache Prerequisites
+      if: |
+        !startsWith(github.event.head_commit.message, 'WIP')
+        && !startsWith(github.ref, 'refs/tags/')
       id: cache
       uses: actions/cache@v1
       with:
@@ -19,7 +22,10 @@ jobs:
         key: ${{ runner.os }}-prereqs-${{ hashFiles('**/prereqs.json') }}
 
     - name: Prepare Prerequisites
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: |
+        !startsWith(github.event.head_commit.message, 'WIP')
+        && !startsWith(github.ref, 'refs/tags/')
+        && steps.cache.outputs.cache-hit != 'true'
       env:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
@@ -27,20 +33,30 @@ jobs:
         make prereqs
 
     - name: Build
+      if: |
+        !startsWith(github.event.head_commit.message, 'WIP')
+        && !startsWith(github.ref, 'refs/tags/')
       env:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         ./configure
+        make prep
         make -j 4
 
     - name: Run tests
+      if: |
+        !startsWith(github.event.head_commit.message, 'WIP')
+        && !startsWith(github.ref, 'refs/tags/')
       env:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |
         make -j 4 check
 
     - name: Static Analysis
-      if: runner.os == 'macOS' && startsWith(github.ref, 'refs/heads/feature/')
+      if: |
+        !startsWith(github.event.head_commit.message, 'WIP')
+        && runner.os == 'macOS'
+        && startsWith(github.ref, 'refs/heads/feature/')
       env:
         KSS_INSTALL_PREFIX: "/tmp/opt/kss"
       run: |

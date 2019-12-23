@@ -111,9 +111,9 @@
 		AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
 		AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stringutil.hpp; sourceTree = "<group>"; };
 		AA4D19C121F2D887002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
-		AA6C3BBE23AE91E600ACE3C2 /* prereqs-licenses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "prereqs-licenses.json"; sourceTree = "<group>"; };
+		AA6C3BD123B129CF00ACE3C2 /* Dependancies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Dependancies; sourceTree = "<group>"; };
+		AA6C3BD223B129EB00ACE3C2 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		AA87CE002393103300457FDA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		AA87CE012393115500457FDA /* prereqs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = prereqs.json; sourceTree = "<group>"; };
 		AA87CE0223933EAD00457FDA /* config.local */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.local; sourceTree = "<group>"; };
 		AA87CE03239353E400457FDA /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		AA8BDAB923944DA80027EE18 /* nicenumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nicenumber.cpp; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 			children = (
 				AACCD4A621F199B300C270C7 /* TopLevel */,
 				AA87CE03239353E400457FDA /* .github */,
+				AA6C3BD123B129CF00ACE3C2 /* Dependancies */,
 				AACCD4AE21F19B3000C270C7 /* BuildSystem */,
 				AACCD4AD21F19B1900C270C7 /* Sources */,
 				AACCD4C621F19D2E00C270C7 /* Tests */,
@@ -211,14 +212,13 @@
 		AACCD4A621F199B300C270C7 /* TopLevel */ = {
 			isa = PBXGroup;
 			children = (
+				AA6C3BD223B129EB00ACE3C2 /* .gitattributes */,
 				AA87CE002393103300457FDA /* .gitignore */,
 				AA87CE0223933EAD00457FDA /* config.local */,
 				AACCD4A721F199C600C270C7 /* configure */,
 				AACCD4AA21F199C600C270C7 /* LICENSE */,
 				AA8C551B23A7E43C00F9D284 /* logo.png */,
 				AACCD4AB21F199C600C270C7 /* Makefile */,
-				AA6C3BBE23AE91E600ACE3C2 /* prereqs-licenses.json */,
-				AA87CE012393115500457FDA /* prereqs.json */,
 				AACCD4A821F199C600C270C7 /* README.md */,
 			);
 			name = TopLevel;

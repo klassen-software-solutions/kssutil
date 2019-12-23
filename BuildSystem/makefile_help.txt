@@ -120,6 +120,7 @@ install     - Installs the library and header files into the target directory.
 prep        - Builds a number of preparatory items. This is most useful when you
               are building in an IDE (like Xcode) and need to build the auto-
               generated items.
+prereqs     - Installs any registered prerequisites.
 
 
 OTHER OPTIONS
