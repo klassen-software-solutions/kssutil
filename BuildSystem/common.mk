@@ -42,6 +42,12 @@ else
 	CFLAGS := $(CFLAGS) $(OPTIMIZED_FLAGS)
 endif
 
+# Only include the license file dependancy if there are prerequisites to examine.
+PREREQS_LICENSE_FILE := prereqs-licenses.json
+ifeq ($(wildcard prereqs.json),)
+	PREREQS_LICENSE_FILE :=
+endif
+
 KSS_INSTALL_PREFIX ?= /opt/$(PREFIX)
 CFLAGS := $(CFLAGS) -I$(KSS_INSTALL_PREFIX)/include
 LDFLAGS := $(LDFLAGS) -L$(KSS_INSTALL_PREFIX)/lib
@@ -73,7 +79,7 @@ ifeq ($(wildcard Tests/.*),)
 	TESTPATH :=
 endif
 
-build: library prereqs-licenses.json
+build: library $(PREREQS_LICENSE_FILE)
 
 library: $(LIBPATH)
 

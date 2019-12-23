@@ -28,7 +28,7 @@ def _get_run(command: str, directory: str = None):
 def _get_prereqs():
     prereqs = []
     if not os.path.isdir(_PREREQS_DIRECTORY):
-        logging.warn("No prerequisites directory found, ensure they have been built.")
+        logging.warning("No prerequisites directory found, ensure they have been built.")
     else:
         for entry in os.listdir(_PREREQS_DIRECTORY):
             if os.path.isdir(_PREREQS_DIRECTORY + '/' + entry):
@@ -90,7 +90,7 @@ def _create_license_entry(prereq: str, spdx) -> Dict:
     license = { 'moduleLicense': 'UNKNOWN' }
     filename = _get_license_filename(dir)
     if filename is None:
-        logging.warn("Could not find a license file in %s, assuming 'UNKNOWN'" % dir)
+        logging.warning("Could not find a license file in %s, assuming 'UNKNOWN'" % dir)
     else:
         fn = dir + "/" + filename
         license = _examine_license_file(fn, spdx)

@@ -19,6 +19,7 @@
             "x-isOsiApproved": true,
             "x-spdxId": "MIT",
             "x-usedBy": [
+                "ksscontract",
                 "kssutil"
             ]
         },

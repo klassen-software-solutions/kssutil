@@ -44,7 +44,10 @@ def _main():
         line = line.decode('utf-8').rstrip()
         print("%s" % line)
         if "warning:" in line:
-            warning_count += 1
+            if "ld: warning: directory not found for option" not in line:
+                # this warning isn't a code problem, but occurs when we have no prereqs
+                # hence do not have the /opt or /tmp/opt prerequisite directory
+                warning_count += 1
         if "** ANALYZE FAILED **" in line:
             analyze_failed = True
 
