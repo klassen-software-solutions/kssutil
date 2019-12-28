@@ -28,6 +28,8 @@ using namespace kss::util;
 using namespace kss::util::time;
 using namespace kss::test;
 
+extern void bug18_stream_operators();
+
 namespace {
 	bool checkTm(const struct ::tm& tm, int year, int month, int day, int hour, int minute, int second) noexcept {
 		return tm.tm_year == year - 1900
@@ -292,5 +294,6 @@ static TestSuite ts("time::timeutil", {
         tsAsString = toIso8601String(ts);
         ts2 = fromIso8601String<timestamp_t>(tsAsString);
         KSS_ASSERT(ts == ts2);
-    })
+    }),
+    make_pair("bug18 stream operators", bug18_stream_operators)
 });

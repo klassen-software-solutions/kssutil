@@ -25,6 +25,7 @@
 		AA4D19BB21F2D2B1002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19B921F2D2B1002A7FBB /* stringutil.cpp */; };
 		AA4D19BC21F2D2B1002A7FBB /* stringutil.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA4D19BA21F2D2B1002A7FBB /* stringutil.hpp */; };
 		AA4D19C221F2D887002A7FBB /* stringutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA4D19C121F2D887002A7FBB /* stringutil.cpp */; };
+		AA72416A23B6505D00CDACCA /* bug18_time_stream_operators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA72416923B6505D00CDACCA /* bug18_time_stream_operators.cpp */; };
 		AA8BDABB23944DA80027EE18 /* nicenumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA8BDAB923944DA80027EE18 /* nicenumber.cpp */; };
 		AA8BDABC23944DA80027EE18 /* nicenumber.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AA8BDABA23944DA80027EE18 /* nicenumber.hpp */; };
 		AA8BDABE239454100027EE18 /* nicenumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA8BDABD239454100027EE18 /* nicenumber.cpp */; };
@@ -113,6 +114,7 @@
 		AA4D19C121F2D887002A7FBB /* stringutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringutil.cpp; sourceTree = "<group>"; };
 		AA6C3BD123B129CF00ACE3C2 /* Dependancies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Dependancies; sourceTree = "<group>"; };
 		AA6C3BD223B129EB00ACE3C2 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		AA72416923B6505D00CDACCA /* bug18_time_stream_operators.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = bug18_time_stream_operators.cpp; sourceTree = "<group>"; };
 		AA87CE002393103300457FDA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AA87CE0223933EAD00457FDA /* config.local */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.local; sourceTree = "<group>"; };
 		AA87CE03239353E400457FDA /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				AABE9081224F1FEB00C355B8 /* algorithm.cpp */,
 				AACAA6C0225108A70005F45E /* argumentvector.cpp */,
 				AACAA6B4224FE8D70005F45E /* attributes.cpp */,
+				AA72416923B6505D00CDACCA /* bug18_time_stream_operators.cpp */,
 				AABE9087224F231300C355B8 /* circular_array.cpp */,
 				AABE907B224F0BFA00C355B8 /* containerutil.cpp */,
 				AABE9077224F01EA00C355B8 /* convert.cpp */,
@@ -473,6 +476,7 @@
 				AACCD4CD21F19D6800C270C7 /* version.cpp in Sources */,
 				AAF217A9224DC1B2001B85B0 /* timeutil.cpp in Sources */,
 				AAF217A3224C80AE001B85B0 /* uuid.cpp in Sources */,
+				AA72416A23B6505D00CDACCA /* bug18_time_stream_operators.cpp in Sources */,
 				AACAA6C1225108A70005F45E /* argumentvector.cpp in Sources */,
 				AACAA6BB225056860005F45E /* programoptions.cpp in Sources */,
 				AACCD4CA21F19D5000C270C7 /* main.cpp in Sources */,

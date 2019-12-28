@@ -289,6 +289,9 @@ namespace kss { namespace util { namespace time {
         return _private::toLocalized(toTimeT(tp), loc, tzone);
     }
 
+}}}
+
+namespace std {
     /*!
      Write a time point to an output stream. This will output a localized value
      using the current locale of the stream.
@@ -298,7 +301,7 @@ namespace kss { namespace util { namespace time {
                              const std::chrono::time_point<Clock, Duration>& tp)
     {
         const auto loc = strm.getloc();
-        strm << toLocalizedString(tp, loc);
+        strm << kss::util::time::toLocalizedString(tp, loc);
         return strm;
     }
 
@@ -310,9 +313,8 @@ namespace kss { namespace util { namespace time {
     inline std::istream& operator>>(std::istream& strm,
                                     std::chrono::time_point<Clock, Duration>& tp)
     {
-        tp = fromTimeT(_private::readFromInputStream(strm), tp);
+        tp = kss::util::time::fromTimeT(kss::util::time::_private::readFromInputStream(strm), tp);
         return strm;
     }
-}}}
-
+}
 #endif
