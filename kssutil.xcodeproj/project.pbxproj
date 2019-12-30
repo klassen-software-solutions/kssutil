@@ -651,8 +651,8 @@
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = (
-					/opt/kss/include,
 					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
+					/opt/kss/include,
 				);
 				OTHER_LDFLAGS = (
 					"-lksscontract",
@@ -671,8 +671,8 @@
 				DEVELOPMENT_TEAM = 23FN26LWBV;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = (
-					/opt/kss/include,
 					"$(PROJECT_DIR)/.build/Darwin-x86_64/include",
+					/opt/kss/include,
 				);
 				OTHER_LDFLAGS = (
 					"-lksscontract",

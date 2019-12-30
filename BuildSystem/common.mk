@@ -48,6 +48,9 @@ ifeq ($(wildcard Dependancies/prereqs.json),)
 	PREREQS_LICENSE_FILE :=
 endif
 
+CFLAGS := $(CFLAGS) -I$(BUILDDIR)/include
+CXXFLAGS := $(CXXFLAGS) -I$(BUILDDIR)/include -std=c++14 -Wno-unknown-pragmas
+
 KSS_INSTALL_PREFIX ?= /opt/$(PREFIX)
 CFLAGS := $(CFLAGS) -I$(KSS_INSTALL_PREFIX)/include
 LDFLAGS := $(LDFLAGS) -L$(KSS_INSTALL_PREFIX)/lib
@@ -58,9 +61,6 @@ LDFLAGS := $(LDFLAGS) -L$(LIBDIR)
 
 -include $(PROJECTDIR)/config.local
 -include $(PROJECTDIR)/config.defs
-
-CFLAGS := $(CFLAGS) -I$(BUILDDIR)/include
-CXXFLAGS := $(CXXFLAGS) -I$(BUILDDIR)/include -std=c++14 -Wno-unknown-pragmas
 
 .PHONY: build library install check analyze clean cleanall directory-checks hello
 .PHONY: prep docs help prereqs

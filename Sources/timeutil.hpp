@@ -74,6 +74,29 @@ namespace kss { namespace util { namespace time {
         time_t readFromInputStream(std::istream& strm);
         time_t tmToTimeT(const struct tm* tm);
         struct tm* tzTimeR(const time_t* timep, struct tm* result, const char* tzone, char** tzout);
+
+        template <class Rep, class Period>
+        std::string getDurationSuffix(const std::chrono::duration<Rep, Period>& dtn) noexcept {
+            if (std::ratio_equal<Period, std::chrono::hours::period>::value) {
+                return "h";
+            }
+            if (std::ratio_equal<Period, std::chrono::minutes::period>::value) {
+                return "min";
+            }
+            if (std::ratio_equal<Period, std::chrono::seconds::period>::value) {
+                return "s";
+            }
+            if (std::ratio_equal<Period, std::chrono::milliseconds::period>::value) {
+                return "ms";
+            }
+            if (std::ratio_equal<Period, std::chrono::microseconds::period>::value) {
+                return "us";
+            }
+            if (std::ratio_equal<Period, std::chrono::nanoseconds::period>::value) {
+                return "ns";
+            }
+            return std::string();
+        }
     }
 
     /*!
@@ -297,9 +320,7 @@ namespace std {
      using the current locale of the stream.
      */
     template <class Clock, class Duration = typename Clock::duration>
-    std::ostream& operator<<(std::ostream& strm,
-                             const std::chrono::time_point<Clock, Duration>& tp)
-    {
+    ostream& operator<<(ostream& strm, const chrono::time_point<Clock, Duration>& tp) {
         const auto loc = strm.getloc();
         strm << kss::util::time::toLocalizedString(tp, loc);
         return strm;
@@ -310,10 +331,51 @@ namespace std {
      using the current locale of the stream.
      */
     template <class Clock, class Duration = typename Clock::duration>
-    inline std::istream& operator>>(std::istream& strm,
-                                    std::chrono::time_point<Clock, Duration>& tp)
-    {
+    inline istream& operator>>(istream& strm, chrono::time_point<Clock, Duration>& tp) {
         tp = kss::util::time::fromTimeT(kss::util::time::_private::readFromInputStream(strm), tp);
+        return strm;
+    }
+
+    /*!
+     Write a duration to an output stream. If the duration is one of the "standard" chrono ones (e.g. std::chrono::minutes),
+     then the duration count followed by a suitable suffix will be output. Otherwise the duration count will be converted
+     to a floating point value in seconds and the suffix "s(approx)" will be added.
+     */
+    template <class Rep, class Period>
+    ostream& operator<<(ostream& strm, const chrono::duration<Rep, Period>& dtn) {
+        const auto suffix = kss::util::time::_private::getDurationSuffix(dtn);
+        if (suffix.empty()) {
+            long double count = static_cast<long double>(dtn.count());
+            count *= static_cast<long double>(Period::num) / static_cast<long double>(Period::den);
+            strm << count << "s(approx)";
+        }
+        else {
+            strm << dtn.count() << suffix;
+        }
+        return strm;
+    }
+
+    /*!
+     Read a duration from an input stream.
+     */
+    template <class Rep, class Period>
+    istream& operator>>(istream& strm, chrono::duration<Rep, Period>& dtn) {
+        const auto suffix = kss::util::time::_private::getDurationSuffix(dtn);
+        if (suffix.empty()) {
+            strm.setstate(istream::failbit);
+        }
+        else {
+            char ch;
+            Rep count(0);
+            strm >> count;
+            for (const auto sch : suffix) {
+                strm >> ch;
+                if (sch != ch) {
+                    strm.setstate(istream::failbit);
+                }
+            }
+            dtn = chrono::duration<Rep, Period>(count);
+        }
         return strm;
     }
 }
