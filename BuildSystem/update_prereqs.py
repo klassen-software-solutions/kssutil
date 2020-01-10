@@ -49,9 +49,11 @@ def _update_repo(dirname: str):
     logging.info("Updating %s", dirname)
     _run('git pull', directory=dirname)
 
-def _clone_repo(url: str):
+def _clone_repo(url: str, dirname: str, branch: str):
     logging.info("Cloning %s", url)
     _run('git clone %s' % url)
+    if branch:
+        _run('git checkout %s' % branch, directory=dirname)
 
 def _rebuild_and_install(dirname: str):
     logging.info("Rebuilding %s", dirname)
@@ -85,11 +87,19 @@ def _extract(filename: str) -> str:
         raise RuntimeError("Did not seem to create %s" % dirname)
     return dirname
 
-def _install_tarball(url: str):
-    filename = os.path.basename(urllib.parse.urlparse(url).path)
+def _install_tarball(url: str, filename: str):
+    if not filename:
+        filename = os.path.basename(urllib.parse.urlparse(url).path)
     _download(url, filename)
     dirname = _extract(filename)
     _rebuild_and_install(dirname)
+
+def _install_pip(package_name: str):
+    install_options = ''
+    prefix = os.environ.get('KSS_INSTALL_PREFIX', None)
+    if prefix:
+        install_options = '--install-option="--prefix=%s"' % prefix
+    _run('python3 -m pip install --upgrade %s %s' % (install_options, package_name))
 
 def _install_or_update(prereq: Dict):
     if not _is_applicable(prereq):
@@ -101,11 +111,14 @@ def _install_or_update(prereq: Dict):
         if os.path.isdir(dirname):
             _update_repo(dirname)
         else:
-            _clone_repo(prereq['git'])
+            _clone_repo(prereq['git'], dirname, prereq.get('branch', None))
         _rebuild_and_install(dirname)
     elif "tarball" in prereq:
         logging.info("Found %s", prereq['tarball'])
-        _install_tarball(prereq['tarball'])
+        _install_tarball(prereq['tarball'], prereq.get('filename', None))
+    elif "pip" in prereq:
+        logging.info("Found %s", prereq['pip'])
+        _install_pip(prereq['pip'])
     elif "command" in prereq:
         logging.info("Found %s", prereq['command'])
         _run(prereq['command'], directory=CWD)

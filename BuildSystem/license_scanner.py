@@ -106,7 +106,9 @@ def _merge_prereq_dependancies(licenses: Dict, prereq: str):
             for entry in data['dependencies']:
                 key = entry['moduleName']
                 if key in licenses:
-                    bisect.insort(licenses[key]['x-usedBy'], key)
+                    for usedby in entry['x-usedBy']:
+                        if usedby not in licenses[key]['x-usedBy']:
+                            bisect.insort(licenses[key]['x-usedBy'], usedby)
                 else:
                     licenses[key] = entry
 
